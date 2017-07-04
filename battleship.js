@@ -6,6 +6,7 @@ var location3 = location2 + 1;
 var hits = 0;
 var guesses = 0;
 var isSunk = false;
+var stats = "You took " + guesses + " to sink the battleship. That means your accuracy was " + (3/guesses);
 
 while (isSunk) {
 	guess = prompt( "Guess a number between 0 and 6:" );
@@ -23,6 +24,5 @@ while (isSunk) {
 } else {
 	alert("MISS!");
 }
-var stats = "You took " + guesses + " to sink the battleship. That means your accuracy was " + (3/guesses);
 
 alert(stats);
