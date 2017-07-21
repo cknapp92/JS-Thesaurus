@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hangman!</title>
+    <title>My Hangman Game</title>
 </head>
 <body>
-    <h1>Hangman!</h1>
+    <h1>Play Hangman</h1>
 
     <script>
     // Create an array of words
@@ -15,20 +15,20 @@
       "pancake"
     ];
 
-    // Pick a random word
+    // Pick random word
     var word = words[Math.floor(Math.random() * words.length)];
 
-    // Set up the answer array
+    // Set up  answer array
     var answerArray = [];
     for (var i = 0; i < word.length; i++) {
-      answerArray[i] = "_";
+      answerArray[i] = "_ ";
     }
 
     var remainingLetters = word.length;
 
     // The game loop
     while (remainingLetters > 0) {
-      // Show the player their progress
+      // Show player their progress
       alert(answerArray.join(" "));
 
       // Get a guess from the player
@@ -40,7 +40,7 @@ playing.");
       } else if (guess.length !== 1) {
         alert("Please enter a single letter.");
       } else {
-        // Update the game state with the guess
+        // Update the game state with their guess
         for (var j = 0; j < word.length; j++) {
           if (word[j] === guess) {
             answerArray[j] = guess;
