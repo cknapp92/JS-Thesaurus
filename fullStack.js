@@ -116,19 +116,379 @@ for (var i = 1; i <= 100; i+= 1) {
 	document.write(text);
 
 
-	
+
 
 /* 2.1.6 */
 
-// break statement; immediately exits a loop
+// break statement; when encountered, immediately exits that loop
 
 
 while (true) {
 	break; 
 }
 
+// (previous) example,
+
+do { // used do-while to make sure the prompt appeared at least once
+	guess = prompt('I am thinking of a number between 1 and 5...'); // collects the player's guess
+	guessCount += 1; // increase the counter after an attempt
+	if (parseInt(guess) === randomNumber) { // return string from prompt into number
+		correctGuess = true;
+	} 
+} while (!correctGuess) 
+
+// changed to while loop
+
+while (true) { 
+	guess = prompt('I am thinking of a number between 1 and 5...'); // collects the player's guess
+	guessCount += 1; // increase the counter after an attempt
+	if (parseInt(guess) === randomNumber) { // return string from prompt into number
+		correctGuess = true;
+		break;
+	} //works the same as before, even though it seems it would be an infinite loop
+
+// change game to only allow a certain number of guesses; can use a while or a for loop for this
+
+while (guessCount < 10) {
+	guess = prompt('I am thinking of a number between 1 and 5...'); // collects the player's guess
+	guessCount += 1; // increase the counter after an attempt
+	if (parseInt(guess) === randomNumber) { // return string from prompt into number
+		correctGuess = true;
+		break;
+	}
+if (correctGuess) { // use conditional statement to see if the user correctly guessed the number
+	document.write('<h1>You guessed it!</h1>');
+	document.write('<h2>The number was ' + randomNumber + '</h2>');
+	document.write('It took you ' + guessCount + ' attempts');
+} else {
+	document.write('<h1>Sorry, you did not guess the number</h1>');
+} 
 
 
+
+/* 2.1.7 */
+
+// DRY - don't repeat yourself
+// loops help w/ that, as well as functions
+// refactoring - process of improving a program
+
+
+
+/* 2.1.8 */
+
+var html = '';
+var red;
+var green;
+var blue;
+var rgbColor;
+
+for (var i = 0; i < 10; i += 1) {
+	red = Math.floor(Math.random() * 256);
+	green = Math.floor(Math.random() * 256);
+	blue = Math.floor(Math.random() * 256);
+	rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+	html += '<div style="background-color:' + rgbColor + '"></div>';
+}
+document.write(html);
+
+
+
+/* 2.1.9 */
+
+var html = '';
+var rgbColor;
+
+function randomRGB() {
+	return Math.floor(Math.random() * 256 );
+}
+
+function randomColor() {
+	var color = 'rgb(';
+	color += randomRGB() + ',';
+	color += randomRGB() + ',';
+	color += randomRGB() + ',';
+	return color;
+}
+function print(message){
+	document.write(message);
+}
+
+for (var i=0; i < 100; i += 1) {
+	rgbColor = randomColor();
+	html += '<div style="background-color:' + rgbColor + '"></div>';
+}
+
+print(html);
+
+
+
+/* 2.2.1 */
+
+// array - data structure, like a variable
+// variable - only contains one item, which has to be declared
+// array is a flexible method of holding information, can hold any amount and any type of data
+// you don't need to know in advance how many items will be in it
+
+var myShopping = []; // creating an array is the same as a simple variable
+var shoppingList = []; // empty array, an array literal
+var shoppingList = [ 
+	'carrots',
+	'milk',
+	'eggs'
+	]; // common for arrays to be broken up into multiple lines
+
+	// many things come in groups that can be organized into arrays
+
+/* 2.2.2 */
+
+// to access a single value in an array, we use an index
+// index indicates the place of the item in that list
+// 'undefined' is the answer we receive when we try to access an index that isn't filled
+// most shopping carts can be represented by an empty array
+
+
+
+/* 2.2.3 */
+
+// there are many ways to work with arrays
+// length property - contains the number of items in an array
+
+numbers.length // length method - tells the length of an array
+numbers[numbers.length] = 7; // can be used to write a number at the end of an array;
+
+// method is an action you can perform on an object
+
+numbers.push() // push method - push an item into the end of the array
+numbers.push(7,8,9); // you can push multiple items into an array
+
+numbers.unshift(); // unshift method - push item to the beginning of an array
+
+/* example */
+// first js file (we need this to load first, otherwise the second file won't work)
+function printList( list ) {
+	var listHTML = '<ol>';
+	for (var i = 0; i < list.length; i += 1) {
+		listHTML += '<li>' + list[i] + '</li>';
+	}
+	listHTML += '</ol>';
+	print(listHTML);
+}
+function print(html) {
+	document.write(html);
+}
+
+// second js file 
+var playList = [];
+playList.push('I did it my way');
+playList.push('Respect', 'Imagine');
+playList.unshift('Born to Run');
+
+printList( playList );
+
+
+/* 2.2.4 */
+
+//pop removes and returns the last item in an array
+
+numbers.pop(); // removes the last item and removes it; can use it to retrieve that number
+var lastitem = numbers.pop(); // lastitem holds last item
+var firstitem = number.shift(); // firstitem holds first item
+
+// shift is like the first customer in line being helped
+// push is the last customer getting in line
+
+var nums = [1,2,3,4,5];
+nums.length = 5
+nums.push(6) = 6 // push method returns the length of the array; the array's length is 6
+// if we type 'nums' we get a print-out of the items in the array
+
+nums.pop() = 6 // the 6 is gone
+nums.unshift(0); 6 // this returns the value 6 because we've added a new value and the length is now 6
+
+nums.shift(); 0 // let's get rid of the first value and it spits it out
+
+
+
+/* 2.2.5 */
+
+// the for loop is often use to loop through an array (or 'iterate' through an array)
+
+var students = ['Sasha', 'Lynn', 'Jennifer', 'Paul'];
+for (var i=0; i < 4; i += 1) { // how can we be sure that this loop will have 4 items, and need to iterate it 4 times?
+}
+
+/* change example */
+
+var students = ['Sasha', 'Lynn', 'Jennifer', 'Paul'];
+for (var i = 0; i < students.length; i += 1) {
+	console.log(students[i]); // the i counter variable maps perfectly to our array of items
+} // iterates through the four names 'Sasha', 'Lynn', 'Jennifer', 'Paul'
+
+/* example */
+
+var playList = [
+	'Men at Work - Land Down Under',
+	'Toto - Africa'
+];
+
+function print(message) { // prints out a string of content to the document
+	document.write(message); // parameter - variable that holds some value that is passed to the function
+}
+
+function printList(list){ // job: to take an array of items and print out as an ordered list in html; give parameter a simple name like 'list'
+	var listHTML = '<ol>';
+	for (var i = 0; i < list.length; i += 1) {
+		listHTML += '<li>' + list[i] + '</li>';
+	}
+	listHTML += '</ol>'; // build a complete chunk of HTML and add it to our page
+	print(listHTML);
+}
+printList(playList); // call our function and pass our array to it
+
+
+
+/* 2.2.6 */
+
+// join method - to display all items in an array in a string
+// can pass any method to join method and mult. characters
+
+// concat - can combine arrays; doesn't change original arrays
+
+// index of method - to search to see if an item is in an array, returns index
+// if it is not in the list, you get the number -1
+
+/* example program */
+var inStock = ['apples', 'eggs', 'milk'];
+var search;
+
+function print(message) {
+	document.write('<p>' + message + '</p>');
+}
+
+while (true) {
+	search = prompt("search for a product. Type 'list' to show all of the produce and 'quit' to exit");
+	if (search === 'quit') {
+		break;
+	} else if (search === 'list') {
+		print(inStock.join(', '));
+	} else if ((inStock.indexOf(search)) > -1) {
+		print('Yes, we have ' + search + ' in stock');
+	} else {
+		print(search + ' is not in stock');
+	}
+  }
+
+
+
+/* 2.2.7 */
+
+// two-dimensional array - a list containing other lists
+// think of a two-dimensional array like a spreadsheet
+// to make an array like this, we have to make each item an array
+// you can access the values of the nested array with another index value
+
+/* improving previous example */
+
+var playList = [
+	['I did it my way', 'Sinatra'],
+	['Land down under', 'Men at Work' ],
+	['Africa', 'Toto']
+];
+
+function print(message) { 
+	document.write(message); 
+}
+
+function printSongs(songs){ // print out a list of songs/performers
+	var listHTML = '<ol>';
+	for (var i = 0; i < songs.length; i += 1) {
+		listHTML += '<li>' + songs[i][0] + ' by ' + songs[i][1] + '</li>'; // we need to access both the song and performer
+	}
+	listHTML += '</ol>'; 
+	print(listHTML);
+}
+printSongs(playList); // prints out the songs 'by' the performer in an ordered list
+
+
+/* 2.2.9 */
+
+var questions = [
+	['How many states are in the US?', 50],
+	['How many continents are there?', 7],
+	['How many legs does an insect have', 6]
+];
+
+var question;
+var answer;
+var response;
+var html;
+
+function print(message){
+	var outputDiv = document.getElementById('output'); // locate a tag with a specific id attached to it
+	outputDiv.innerHTML = message; // you can use innerHTML to change what is printed to the page
+} // tells the interpreter to look at the webpage and find the tag 'output'
+
+for (var i = 0; i < questions.length; i += 1) {
+	question = questions[i][0];
+	answer = questions[i][1];
+	response = parseInt(prompt(question)); 
+	if (response===answer) {
+		correctAnswers += 1;
+	}
+}
+html = "You got " + correctAnswers + " answers right."
+
+
+
+/* 2.2.11 */
+
+/* solution */
+
+var questions = [
+	['How many states are in the US?', 50],
+	['How many continents are there?', 7],
+	['How many legs does an insect have', 6]
+];
+
+var correctAnswers = 0;
+var question;
+var answer;
+var response;
+var html;
+var correct = [];
+var wrong = [];
+
+function buildList(arr){
+	var listHTML = '<ol>';
+	for (var i = 0; i <arr.length; i += 1) {
+		listHTML += '<li>' + arr[i] + '</li>';
+	}
+	listHTML += '</ol>';
+	return listHTML;
+}
+
+for (var i = 0; i < questions.length; i += 1) {
+	question = questions[i][0];
+	answer = questions[i][1];
+	response = parseInt(prompt(question)); 
+	if (response===answer) {
+		correctAnswers += 1;
+		correct.push(question);
+	} else {
+		wrong.push(question);
+	}
+}
+
+function print(message) { 
+	document.write(message); 
+}
+
+html = "You got " + correctAnswers + " question(s) right.";
+html += "You got these questions right.";
+html += buildList(correct);
+html += "<h2> You got these questions wrong.</h2>";
+html += buildList(wrong);
+print(html);
 
 
 
