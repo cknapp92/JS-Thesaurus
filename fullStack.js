@@ -491,11 +491,118 @@ html += buildList(wrong);
 print(html);
 
 
+/* 5.1.2 */
+
+// alert is a browser function
+
+alert("I made the browser message me.");
+
+location.href // we can show the current url; we see that url printed in console matches url in address bar
+
+// these variables are part of the browser's global environment
+// global variables are properties of a single global object called 'window'
+
+window // if we type in window into the console we can see all its properties
+// all these globals are properties on the window object
+
+window.alert('This is the same alert function'); // same message box, just like with 'alert()' method
+
+/* change color of heading to purple */
+document.getElementById('myHeading').style.color = 'purple'; // in short, we selected an element and then manipulated it
+
+document.getElementById('myHeading').style.backgroundColor = 'yellow'; // change the heading background color to yellow
 
 
+/* 5.1.3 */
 
+/* the document is a global object representing the html and content of a webpage. with JS you can select parts of the webpages by interacting with the document. Understanding how that works involves understanding the DOM. */
 
+/* a DOM is a map of a webpage that JS can use; changes that JS makes to the DOM change the webpage; like changing a street on the map and changing it in real life*/
 
+// the document element, or node, would be the root node
 
+// head and body are siblings
+// h1 is child of body
+// body is parent of ul elements
 
+/* 5.1.4 */
 
+// the main global variable is the document object, which like all other global variables is a property of the window object
+
+// basic tasks JS can do with DOM: 1) select an element, 2) read or change element, 3) respond to user events
+
+/* 5.2.1 */
+
+const myHeading = document.getElementById('myHeading'); // we have a reference to the heading element stored in the constant myHeading
+myHeading.addEventListener(); // this tells the heading elements to start looking for browser events; there are many browser events
+
+myHeading.addEventListener('click', () => {
+	myHeading.style.color = "red";
+});  // we want to look for any momemnts where user clicks headline
+// first parameter is the name of the event, 'click'
+// now we need to tell it what to do when there is a click, so we add a function as the 2nd parameter
+
+/* 5.2.2 */
+
+// change color by clicking button; need to select that button element first
+
+const myButton = document.getElementById('myButton');
+
+myButton.addEventListener('click', () => {
+	myHeading.style.color = "red";
+});
+
+// lets enable the button to change the heading to whatever color
+
+const myTextInput = document.getElementById('myTextInput');
+
+myTextInput.addEventListener('click', () => {
+	myHeading.style.color = myTextInput.value;
+});
+
+/* 5.2.3 */ 
+
+.getElementsByTagName('p'); // will get all the <p> elements in a page; returns a collection of elements
+// note: a collection of elements is like an array; you can access an element directly using its index or loop over the whole collection to access all of them
+
+// note: refresh the console to reset things (i.e. constants)
+
+// we access these elements the same way we would access elements in an array
+const myParagraph = document.getElementsByTagName('p');
+myParagraph[0]; // returns paragraph element
+
+// now let's change the color of the p to blue
+myParagraph[0].style.color = 'blue';
+
+// lets use getElementsByTagName to select the heading element
+
+const myHeading = document.getElementsByTagName('h1'); // we're getting a collection back, but there is only one on the page, again use index 0
+const myButton = document.getElementById('myButton');
+const myTextInput = document.getElementById('myTextInput');
+
+myTextInput.addEventListener('click', () => {
+	myHeading.style.color = myTextInput.value;
+});
+
+// getElementsByTagName shines if you have multiple elements to select
+
+// lets add an ul of things that are purple and add it to the html File()
+<p>Things that are purple>
+<ul>
+	<li>peonies</li>
+	<li>hamburgler</li>
+	<li>grapes</li>
+</ul>
+
+const myList = document.getElementsByTagName('li');
+myList[2].style.color = 'purple'; //in the console
+
+//lets change the whole list to purple
+// lets iterate over all of them with a for loop
+
+// in js File
+const myList = document.getElementsByTagName('li');
+
+for (let i = 0; i < myList.length; i++) {
+	myList[i].style.color = 'purple';
+}
