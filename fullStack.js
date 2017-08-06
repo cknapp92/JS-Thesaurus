@@ -606,3 +606,63 @@ const myList = document.getElementsByTagName('li');
 for (let i = 0; i < myList.length; i++) {
 	myList[i].style.color = 'purple';
 }
+
+
+/* 5.2.4 */
+
+getElementsByClassName 
+
+// add things not purple with class name
+
+<li>peonies</li>
+<li class='error-not-purple'>oranges</li
+<li>hamburgler</li>
+<li class='error-not-purple'>apples</li>
+<li>grapes</li>
+
+// then make another for loop to iterate through the error-not-purple items
+
+const myList = document.getElementsByTagName('li');
+
+for (let i = 0; i < myList.length; i++) {
+	myList[i].style.color = 'purple';
+}
+
+const errorNotPurple = document.getElementsByClassName('error-not-purple');
+
+for (let i = 0; i < errorNotPurple.length; i++) {
+	errorNotPurple[i].style.color = 'red';
+}
+
+// note: dont use '-' between words in const and var names, use camel case
+
+/* 5.2.5 */
+
+querySelector // most flexible of element selectors
+querySelectorAll
+
+document.querySelectorAll('li'); // selects all the things with li tags
+document.querySelector('li'); // only returns first element
+
+// can also select by id
+
+document.querySelector('#myHeading'); // selects the h1 element with id = 'myHeading'
+
+document.querySelectorAll('.error-not-purple'); // selects all items with class name error-not-purple
+
+
+// make paragraph with title name 
+
+document.querySelector('[title=label]'); /returns the paragraph with the title attribute
+
+// can change class selector with query selector all
+
+// with the n-child pseudo class selector we can zebra stripe the list without relying on classes
+
+const evens = document.querySelectorAll('li:nth-child(even)'); // replace 'even' with 'odd' to see all the odd elements with background color of gray
+
+for (let i = 0; i < evens.length; i+=1) {
+	evens[i].style.backgroundColor = 'lightgray';
+} 
+
+
