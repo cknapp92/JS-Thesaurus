@@ -666,3 +666,115 @@ for (let i = 0; i < evens.length; i+=1) {
 } 
 
 
+
+/* 5.3.1 */
+
+Element.textContent // use this method to read or set text values of elements
+// use it to retrieve the text content of a node
+
+let myHeading = document.querySelector('h1');
+
+myHeading.textContent; // "JavaScript and the DOM"
+
+myHeading.textContent = "this is a new heading"; // change the h1 to the text on the RHS
+
+//when the button is clicked, we'll use the value of the text input to set the paragraph's text content property
+const input = document.querySelector('input');
+const p = document.querySelector('p.description');
+const button = document.querySelector('button');
+
+button.addEventListener('click', () => {
+	p.textContent = input.value;
+})
+
+
+// let's change textContent with innerHTML
+
+// in the browser, it functions exactly the same way
+
+// innerHTML can also read and alter the elements in a webpage, anything in HTML tags
+
+let ul = document.querySelector('ul');
+
+ul.innerHTML; // if we call inner on the ul it gives us a string of the HTML code w/ in the ul element
+
+ul.innerHTML = "<li>red cabbage</li"; // when I hit enter, we see that there is just one list item; we replaced all the list contents with this one HTML
+
+
+/* 5.3.2 */
+
+// let's look at changing the attribute of an element
+
+// attributes exists as property of an element object, like the href attribute
+
+input.type // "text"
+
+input.className // "description"
+
+// can change the input's type attribute
+
+input.type = 'checkbox' // we just turned it into a checkbox by changing its type attribute
+
+// let's update the element's title to say list description
+
+p.title = "List description"; // a tooltip appears over the paragraph of "List Description" when the cursor is over it
+
+// if you want to get or set an element's class, you have to use Element.className
+
+
+/* 5.3.3 */
+
+
+// let's look at the element's style property
+// you can set inline style on an html page with the style attribute and overrides CSS
+
+p.style // let's look at p's style property
+
+p.style.color = 'darkblue' // changes text color to dark blue
+
+p.style.backgroundColor = 'lightblue ' 
+
+// let's make a button that will toggle things on the page in and out of view
+
+// let's add a button in HTML file
+<button id="toggleList">Hide list</button>
+<div class="list">
+ // all selected ul elements
+</div>
+
+// in .js file
+
+const toggleList = document.getElementById('toggleList');
+const listDiv = document.querySelector('.list');
+
+const input = document.querySelector('input');
+const p = document.querySelector('p.description');
+const button = document.querySelector('button');
+
+button.addEventListener('click', () => {
+	p.textContent = input.value;
+})
+toggleList.addEventListener('click', () => {
+	if listDiv.style.display = 'none';
+}) // add click event listener to button
+
+/* let's make the button show AND reveal the list */
+
+toggleList.addEventListener('click', () => {
+	if (listDiv.style.display == 'none') {
+		listDiv.style.display = 'block';
+	} else {
+		toggleList.textContent = 'Show list';
+		listDiv.style.display = 'none';
+	});
+
+
+/* 5.3.4 */
+
+Element.createElement('div'); //create a new div
+
+// nodes belong to the dom, elements belong to the html
+
+
+
+
