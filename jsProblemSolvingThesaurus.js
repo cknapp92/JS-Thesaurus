@@ -157,9 +157,11 @@ function smth (arr) {
 
 /* CodeWars Problem - change negative to a positive number in an array and vice versa */
 
+var arr2 = [5, 2, 3];
+
 function invert (array) {
+	var a = [];
 	for (let i = 0; i < array.length; i++) {
-		var a = [];
 		if (array[i] < 0) {
 		a[a.length] = Math.abs(array[i]);
 		} else if (array[i] === 0) {
@@ -167,9 +169,13 @@ function invert (array) {
 		} else {
 		a[a.length] = -Math.abs(array[i]);
 		}
-	return a;
 	}
+	return a; // moved return a; from previous lint to this line, between the last and second to last end curly brace.
 }
+
+
+invert (arr2); // [-5, -2, -3] 
+// I finally figured it out!!!
 
 /* create array from string of numbers with split method */
 
