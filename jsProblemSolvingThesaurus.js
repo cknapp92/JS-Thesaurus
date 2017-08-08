@@ -1,4 +1,4 @@
-/* This is just a compilation of techniques I've discovered or tested to solve various problems in JavaScript. I wanted a place to centralize and review all of the notes that I'm made in coming up with various solutions to challenging problems */
+/* This is just a compilation of techniques I've discovered or tested to solve various problems in JavaScript. I wanted a place to centralize and review all of the notes that I have made in coming up with various solutions to challenging problems */
 
 /* Get the highest value of a series of numbers */
 
@@ -196,7 +196,7 @@ function invert(array) {
 
 
 
-/* How to append letters/numbers to elements over an array */
+/* How to append letters to elements over an array of strings */
 
 var arr1 = ['Apple', 'Banana', 'Pear'];
 
@@ -208,7 +208,7 @@ var adder = arr1.map(function(array){
 console.log(adder); //["Apples", "Bananas", "Pears"] // taken from scriptverse
 
 
-//my version
+//my version (for letters)
 
 
 var arr4 = ["kumkwat", "pumpkin", "rhubarb"];
@@ -218,6 +218,45 @@ function adder (array) {
 } 
 
 adder(arr4); // (3) ["kumkwats", "pumpkins", "rhubarbs"]
+
+
+
+
+/* How to append numbers to elements over an array of numbers */
+
+
+var items = [1,2,3];
+items.map(function(item) { 
+	return item + 1;
+}); // [2,3,4];
+
+
+function adder (array) {
+	return array.map(i => i +1);
+} 
+
+adder(items); // (3) [2, 3, 4]
+
+
+
+/* Check whether strings in an array contain palindromes */
+
+var items = ['mom', 'dad', 'brother'];
+items.map(function(item) {
+	return item.split('').reverse().join('') === item;
+}); // (3) [true, true, false]
+
+/* how I rewrote it: */
+
+var items = ["mom", "dad", "evade me dave", "otto"];
+
+function palindromer (array) {
+	return array.map(i => i.split('').reverse().join('') === i);
+}
+
+palindromer(items); // (4) [true, true, false, true]
+
+
 
 
 /* create array from string of numbers with split method */
