@@ -177,6 +177,49 @@ function invert (array) {
 invert (arr2); // [-5, -2, -3] 
 // I finally figured it out!!!
 
+
+/* Quicker method to turn positive numbers to negative and vice versa */
+
+var arr1 = [8, 0, -3, 4];
+
+function invert(array) {
+	return array.map( x => x === 0 ? x : -x);
+} // [-8, 0, 3, -4]
+
+function invert(array) {
+	return array.map(x => x && -x);
+} // [-8, 0, 3, -4]
+
+function invert(array) {
+	return array.map(i => 0 - i);
+} // " "
+
+
+
+/* How to append letters/numbers to elements over an array */
+
+var arr1 = ['Apple', 'Banana', 'Pear'];
+
+
+var adder = arr1.map(function(array){
+	return array + this;
+}, 's'); 
+
+console.log(adder); //["Apples", "Bananas", "Pears"] // taken from scriptverse
+
+
+//my version
+
+
+var arr4 = ["kumkwat", "pumpkin", "rhubarb"];
+
+function adder (array) {
+	return array.map(i => i +'s');
+} 
+
+adder(arr4); // (3) ["kumkwats", "pumpkins", "rhubarbs"]
+
+
 /* create array from string of numbers with split method */
 
 
