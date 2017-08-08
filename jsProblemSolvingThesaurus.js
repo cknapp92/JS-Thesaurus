@@ -70,6 +70,105 @@ function reverseStr () {
 } // "gnihtyna"
 
 
+for (let i = 0; i < str.length; i++) {
+	str = str.charAt(i);
+	print str;
+}
+
+
+/* How to print out each letter of a word in console (with charAt() method) */
+
+var str = "dingus";
+
+function printer () {
+	for (let i = 0; i < str.length; i++) {
+		console.log(str.charAt(i));
+	}
+}
+
+printer();
+
+
+/* Map a string of numbers to an array */
+
+var str = "1 2 4 5";
+
+function mapping () {
+	numbers = numbers.split(' ').map(Number)
+	return numbers;
+} // map is for generating a new array
+
+mapping(str); // (4) [1, 2, 4, 5]
+
+
+/* Very quick way to find max/min of an array of numbers */
+
+var arr1 = [5, 2, 10];
+
+Math.max(...arr1); // 10
+
+Math.min(...arr1); // 2
+
+
+
+/* how to find square root w/o method */
+
+
+
+function squareRoot (x) {
+    var y = Math.pow(Math.abs(x), 1/2)
+	return x < 0 ? -y : y; // if we only had 'return y' in this line, we would only get the right answer for positive numbers
+	}
+	
+/* Fastest way to convert smth into a number */
+
+// unary plus, operator: +x
+
++3     // 3
++'3'   // 3
++true  // 1
++false // 0
++null  // 0
++function(val){  return val } // NaN
+
+
+/* to combine an array of strings into a single string */
+
+// using concat method
+
+
+var greeting = ["Mark", "Bill", "and", "Dave"];
+
+"".concat(...greeting); // MarkBillandDave
+
+
+/* change negative to a positive number in an array */
+
+function inverter (arr) {
+	var a = [];
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] < 0) {
+		a.push(Math.abs(arr[i]));
+		} else if (arr[i] === 0) {
+		a.push(0);	
+		} else {
+		a.push(-Math.abs(arr[i]));
+		}
+	}
+}
+
+/* Making numbers positive or negative */
+
+Math.abs(num) => Always positive
+-Math.abs(num) => Always negative
+
+
+function smth (arr) {
+	if (arr[i] < 0) {numbers.map(function() {
+		return x * 2;
+}
+
+
 
 
 
