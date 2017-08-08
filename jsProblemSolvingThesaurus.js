@@ -114,7 +114,6 @@ Math.min(...arr1); // 2
 /* how to find square root w/o method */
 
 
-
 function squareRoot (x) {
     var y = Math.pow(Math.abs(x), 1/2)
 	return x < 0 ? -y : y; // if we only had 'return y' in this line, we would only get the right answer for positive numbers
@@ -142,20 +141,6 @@ var greeting = ["Mark", "Bill", "and", "Dave"];
 "".concat(...greeting); // MarkBillandDave
 
 
-/* change negative to a positive number in an array */
-
-function inverter (arr) {
-	var a = [];
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] < 0) {
-		a.push(Math.abs(arr[i]));
-		} else if (arr[i] === 0) {
-		a.push(0);	
-		} else {
-		a.push(-Math.abs(arr[i]));
-		}
-	}
-}
 
 /* Making numbers positive or negative */
 
@@ -169,6 +154,24 @@ function smth (arr) {
 }
 
 
+
+/* CodeWars Problem - change negative to a positive number in an array and vice versa */
+
+function invert (array) {
+	for (let i = 0; i < array.length; i++) {
+		var a = [];
+		if (array[i] < 0) {
+		a[a.length] = Math.abs(array[i]);
+		} else if (array[i] === 0) {
+		a[a.length] = 0;	
+		} else {
+		a[a.length] = -Math.abs(array[i]);
+		}
+	return a;
+	}
+}
+
+/* create array from string of numbers with split method */
 
 
 
