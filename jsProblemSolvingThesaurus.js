@@ -222,7 +222,7 @@ adder(arr4); // (3) ["kumkwats", "pumpkins", "rhubarbs"]
 
 
 
-/* How to append numbers to elements over an array of numbers */
+/* How to add numbers to elements over an array of numbers */
 
 
 var items = [1,2,3];
@@ -255,6 +255,100 @@ function palindromer (array) {
 }
 
 palindromer(items); // (4) [true, true, false, true]
+
+
+/* Challenge - make a function that returns only the last three letters of any string that you pass into it */
+
+var lastThree = function (string) {
+	return string.slice(string.length - 3).toUpperCase();
+}
+
+lastThree('dingus'); // "GUS"
+
+
+
+/* Simple function to det. whether a string is a tweet (140 char or less) */
+
+//variant 1
+function tweeter (x) {
+	var y = x.length;
+	return y <= 140;
+} 
+
+//variant 2
+function tweeter (x) {
+	var y = x.length;
+    return y < 140 && y > 0;
+}
+
+tweeter ('here\'s my message'); // true
+
+
+
+
+/* Check to see if a word/string is in a longer string */
+
+var message = "here's my tweet";
+
+function finder (x, y) {
+	return x.indexOf(y) > -1;
+}
+
+finder (message, "tweet"); // true
+
+
+/* Check to see if year is a valid input (bet. 1900 and 2017) */
+
+function isYearRight (year) {
+	return typeof year === "number" && year > 1900 && year < 2018
+	}
+
+isYearRight (1922);
+// true
+isYearRight (1899);
+// false
+isYearRight(-2000);
+// false
+
+
+/* Check if the last letter in a string is a question mark */
+
+var question = "is this a question?";
+var notQuestion = "this is not a question";
+
+function questionOrNot (x) {
+	if (x.charAt(x.length - 1) === '?') {
+		return "it's a question";
+	} else {
+		return "it's not question";
+	}
+}
+
+questionOrNot(question); // "it's a question"
+questionOrNot(notQuestion); // "it's not question"
+
+
+/* Challenge: tweet improver */
+
+var message = "that's gotta hurt LOL";
+var message1 = "whoa there buddy";
+
+function tweetImprover (tweet) {
+	var result;
+	if (tweet.toLowerCase().indexOf("lol") == -1) {
+	return result = tweet + " lol";
+	} else {
+		return tweet;
+	}
+	
+}
+
+tweetImprover(message); // "that's gotta hurt LOL"
+tweetImprover(message1); // "whoa there buddy lol"
+
+
+
+/* Create HTML tags function */
 
 
 
