@@ -1,5 +1,7 @@
 /* This is just a compilation of techniques I've discovered or tested to solve various problems in JavaScript. I wanted a place to centralize and review all of the notes that I have made in coming up with various solutions to challenging problems */
 
+
+
 /* Get the highest value of a series of numbers */
 
 Math.max(10, -20, 15, 24); // 24
@@ -9,7 +11,6 @@ Math.max(10, -20, 15, 24); // 24
 function getMax(numArray) {
 	return Math.max.apply(null, numArray);
 }
-
 
 var arr2 = [25, 62, 24, 1];
 
@@ -347,8 +348,98 @@ tweetImprover(message); // "that's gotta hurt LOL"
 tweetImprover(message1); // "whoa there buddy lol"
 
 
+/* While loop that gives the even and odd numbers for any range */
+
+var number = 0;
+
+while (number <= 100) {
+	if (number % 2 === 0) {
+		console.log("even");
+	} else {
+		console.log("odd");
+	}
+	number = number + 1;
+}
+
+for (let number = 0; number <= 100; number++) {
+	if (number % 2 === 0) {
+			console.log("even");
+		} else {
+			console.log("odd");
+		}
+		number = number + 1;
+	}
+	
+	
+/* Make a function for the largest divisor of a given number */
+
+function largestDivisor (number) {
+	var result = 1; // smallest possible value it could be; situation when the number is prime
+	for (let i = 2; i < number; i++){ // i < number so we don't get number returned as answer for largest divisor
+		if (number % i === 0) {
+			result = i;
+		}
+	}
+	
+	return result;
+}
+
+largestDivisor(33); // 11
+largestDivisor(101); // 1
+largestDivisor(44); // 22
+
+
+
+/* Make a function that removes all vowels in a string */
+
+function removeVowels (word) {
+	if (typeof word !== "string") {
+		throw "input a string";
+	} 
+	var result = ""; // iterate over each character in a string
+	
+	for (let i = 0; i < word.length; i++) {
+		var currentChar = word.charAt(i).toLowerCase();
+		if (currentChar !== "a" && currentChar !== "e" && currentChar !== "i" && currentChar !== "o" && currentChar !== "u") {
+			result = result + word.charAt(i); // not currentChar b/c we want the words to be printed in their original style
+		}
+	} 
+	return result;
+} 
+
+var message = "that's gotta hurt LOL";
+removeVowels(message); // "tht's gtt hrt LL"
+
+
+
+/* Function that returns the first lowercase letter in a string */
+
+function firstLowerCase (string) {
+	if (typeof string !== "string") {
+		throw "input a string";
+	} 
+	var result = ""; // if there are no lower case letters, it will return ""
+	for (let i = 0; i < string.length && result === ""; i++) // modification of the continuation condition (&& result === "") to break the loop 
+	{
+		if ("a" <= string.charAt(i) && string.charAt(i) <= "z")
+			result = string.charAt(i); 
+	}
+	
+	return result;
+}
+
+var message2 = "WWEFJLlkjsd";
+firstLowerCase(message2); // "l"
+
+var message3 = "HELLO everybody";
+firstLowerCase(message3); // "e"
+
+
 
 /* Create HTML tags function */
+
+
+
 
 
 
