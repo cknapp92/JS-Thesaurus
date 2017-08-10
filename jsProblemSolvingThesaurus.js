@@ -1,12 +1,44 @@
 /* This is just a compilation of techniques I've discovered or tested to solve various problems in JavaScript. I wanted a place to centralize and review all of the notes that I have made in coming up with various solutions to challenging problems */
 
 
+/* Get the last character in a string */
+
+function lastCharString (string) {
+	return string[string.length - 1];
+}
+
+lastCharString('anything'); // "g"
+
+/* Get the last element in an array */
+
+function lastCharArray (array) {
+	return array[array.length - 1];
+}
+
+var arr1 = ['hello', 'hi', 'здравствуйте']; 
+
+lastCharArray(arr1); // "здравствуйте"
+
+/* Function - iterate contents of an array */
+
+function iterateArray (array) {
+	for (let i = 0; i < array.length; i++) {
+		console.log(array[i]);
+	}
+}
+
+var arr4 = ["kumkwat", "pumpkin", "rhubarb"];
+
+iterateArray(arr4);
+// kumkwat
+// pumpkin
+// rhubarb
 
 /* Get the highest value of a series of numbers */
 
 Math.max(10, -20, 15, 24); // 24
 
-/* To return the highest value in an array */
+/* Return the highest value in array - Math.max.apply */
 
 function getMax(numArray) {
 	return Math.max.apply(null, numArray);
@@ -16,12 +48,50 @@ var arr2 = [25, 62, 24, 1];
 
 getMax(arr2); // 62
 
+/* Function - return highest value in array - for loop */ 
+
+function largest (array) {
+	var largestSoFar = array[0];
+	for (let i = 1; i < array.length; i++){
+		if (array[i] > largestSoFar) {
+			largestSoFar = array[i];
+		}
+	}
+	return largestSoFar;
+}
+
+var arr1 = [8, 0, -3, 4];
+
+largest(arr1); // 8
+
+var arr3 = [2, 0, 3, -2];
+
+largest(arr3); // 3
+
 
 /* To return the lowest value in an array */
 
 function getMin(numArray) {
 	return Math.min.apply(null, numArray)
 } 
+
+
+/* Function - return multiples of three in a new array */
+
+function multiplesOfThree (array) {
+	var result = [];
+	for (i = 0; i < array.length; i++) {
+		if (array[i] % 3 === 0) {
+			result.push(array[i]);
+		}
+	}
+	
+	return result;
+}
+
+var arr3 = [2, 0, 3, -2];
+
+multiplesOfThree(arr3); // (2) [0, 3]
 
 
 
@@ -88,6 +158,36 @@ function printer () {
 }
 
 printer();
+
+/* Push a sequence of numbers into an array (i.e. 1 to 10) */
+
+function Num2Array (numbers) {
+	var numbers = []; // need to have empty array for numbers to be pushed into
+	for (let i = 1; i <= 10; i++) {
+		numbers.push(i);
+	}
+	return numbers;
+}
+
+Num2Array(); // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+/* Function - Push all even numbers in a string to an array */
+
+function evenNumberPusher (string) {
+var evenNumbers = [];
+for (let i = 0; i < string.length; i++) {
+	if (string.charAt(i) % 2 === 0) {
+		evenNumbers.push(string.charAt(i));
+	}
+}
+	return evenNumbers;
+}
+
+var numbers = '32491892374597';
+
+evenNumberPusher(numbers); // (5) ["2", "4", "8", "2", "4"]
+
 
 
 /* Map a string of numbers to an array */
@@ -256,6 +356,10 @@ function palindromer (array) {
 }
 
 palindromer(items); // (4) [true, true, false, true]
+
+// doesn't work with strings with spaces 
+
+
 
 
 /* Challenge - make a function that returns only the last three letters of any string that you pass into it */
@@ -433,6 +537,191 @@ firstLowerCase(message2); // "l"
 
 var message3 = "HELLO everybody";
 firstLowerCase(message3); // "e"
+
+
+
+/* Counting numbers backwards (i.e. from 10 to 0) */
+
+function countDown (number) {
+	if (typeof number !== "number") {
+		throw "please input number";
+	}
+	for (let i = number; i >= 0; i--) {
+		console.log(i);
+	}
+}
+
+countDown(5);
+//5
+//4
+//3
+//2
+//1
+//0
+
+/* Function - sum numbers in an array */
+
+function sum (list) {
+	var sum = 0;
+	
+	list.forEach(function (number){
+		sum = sum + number;
+	})
+	
+	return sum;
+}
+
+var arr1 = [3, 2, 9, 12, 3];
+
+sum(arr1); // 29
+
+
+
+/* Function - double each item in array */
+
+function doubles (list) {
+	var result = [];
+	
+	list.forEach(function (number) {
+		result.push(number * 2);
+	})
+	
+	return result;
+}
+
+var arr1 = [3, 2, 9, 12, 3];
+doubles (arr1); // [6, 4, 18, 24, 6]
+
+function doublesWithMap (list) {
+	var result = list.map(function (number){
+		return number * 2;
+	})
+	return result;
+}
+
+doublesWithMap(arr1); // [6, 4, 18, 24, 6]
+
+// can also return the result variable altogether
+
+function doublesWithMap (list) {
+	return list.map(function (number){
+		return number * 2;
+	})
+	return result;
+} // whenever we want to create a new array from an existing array, we use map function
+// when we use map it calls the function on each element (i.e. number * 2); so it is useful when we want some operation done to each element of the array, otherwise leaving it unchanged
+
+doublesWithMap(arr1); // [6, 4, 18, 24, 6]
+
+/* Raise elements of array to 3rd power - map function */
+
+var arr1 = [3, 2, 9, 12, 3];
+
+arr1.map(function (number){
+	return Math.pow(number, 3);
+}) // [27, 8, 729, 1728, 27]
+
+
+
+/* Get first letters of array of strings */
+
+function getFirstLetters (listOfStrings) {
+	return listOfStrings.map(function(word){
+		// return word[0];
+		return word.charAt(0);
+	})
+}
+
+var arr4 = ["kumkwat", "pumpkin", "rhubarb"];
+getFirstLetters(arr4); // ["k", "p", "r"]
+
+
+
+/* Flip boolean values in array */
+
+var boolean1 = [true, false, true, true, false];
+
+boolean1.map(function(value){
+		return !value; 
+	}) // [false, true, false, false, true]
+	
+// or... as a function:
+	
+function flipBooleans (booleanArray) {
+	return booleanArray.map(function(value){
+		return !value;
+	})
+}
+
+flipBooleans(boolean1); // [false, true, false, false, true]
+
+
+
+
+/* Function - filter range of numbers in array */
+
+
+function filter100 (arrayOfNum) {
+	return arrayOfNum.filter(function (number){
+	return number >= 100; // return only values >= 100
+	})
+}
+
+var arr1 = [3, 200, 90, 102, 300];
+
+filter100(arr1); // [200, 102, 300]
+
+
+/* Function - filter even numbers in array */
+
+function evenMaker (arrayOfNum) {
+	return arrayOfNum.filter(function(number){
+		return number % 2 === 0;
+	})
+}
+
+var arr1 = [3, 200, 90, 102, 300];
+
+evenMaker(arr1); // [200, 90, 102, 300]
+
+
+/* Convert from string (w/ commas) to array  */
+
+function Str2Array (string) {
+	return string.split(",");
+}
+
+var message = "anything, everything, something";
+
+Str2Array(message); // ["anything", " everything", " something"]
+
+
+/* Convert from string (w/o commas) to array  */
+
+function Str2Array (string) {
+	return string.split(" ");
+}
+
+var message = "that is cool lol";
+
+Str2Array(message); // ["that", "is", "cool", "lol"]
+
+
+/* Convert from array to string */
+
+function Array2String (array) {
+	return array.join(" ");
+}
+
+var arr = ["that", "is", "cool", "lol"];
+
+Array2String(arr); // "that is cool lol"
+
+
+
+
+/* Fizz Buzz Challenge */
+
 
 
 
