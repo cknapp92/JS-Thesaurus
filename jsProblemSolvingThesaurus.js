@@ -720,7 +720,9 @@ Array2String(arr); // "that is cool lol"
 
 
 
-/* Fizz Buzz Challenge */
+/* Fizz Buzz Challenge - multiples of three, replace with fizz */
+
+
 
 
 
