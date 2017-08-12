@@ -697,6 +697,20 @@ Array2String(arr); // "that is cool lol"
 
 
 
+/* Check if all elements in array satisfy a condition */
+
+array.every( x => x % 2 === 1 ); // checks if all elements in the array are odd
+
+arr1 = [1, 2, 3, 4, 5]; 
+
+array.every( x => x % 2 === 1 ); // false
+
+var arr3 = [5, 5, 5];
+
+arr3.every(x => x%2 === 1); // true
+
+
+
 /* Create HTML tags function */
 
 
