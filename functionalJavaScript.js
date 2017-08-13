@@ -198,3 +198,38 @@ var x = foo(3,4);
 
 x(); // 7
 x(); // 7
+
+
+
+/* Recursive Example */
+
+// mult function cannot take in 4 parameters
+
+function mult() {
+	return x * y * z;
+}
+
+mult(3,4,5); // 60
+mult(3,4,5,6); // Oops!
+
+
+
+/* use recursion to modify mult so it can take in an arbitrary amount of parameters */
+
+// all recursive functions have (1) a base case - some way
+// to know it is time to stop so it doesn't run forever
+// and (2) a recursive call is needed
+
+function mult(...args) { // use gather operator; gather all into 
+ //array args
+	if (args.length <= 2) {
+		return args[0] * args[1];
+	}
+	return args[0] * mult(...args.slice(1)); // slice creates a
+	// whole new array; takes method as context, but doesn't 
+	// change context, but makes a new one
+}
+
+mult(1,2,3,4); // 24
+
+
