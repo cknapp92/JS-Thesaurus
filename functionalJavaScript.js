@@ -1,3 +1,81 @@
+/* 
+
+What is state? Is it easy to manage state in JS?
+
+The state of a program can be defined as a snapshot of the data stored in all of its objects at any moment in time. No, sadly JavaScript is one of the worst languages when it comes to securing an object’s state. A JavaScript object is highly dynamic, and you can modify, add, or delete its properties at any point in time. 
+
+
+Why are string and numbers the easiest types to work with?
+
+Part of the reason is that, traditionally, these primitive types are inherently immutable, which gives us a certain peace of mind that other user-defined types don’t. In functional programming, we call types that behave this way values.
+
+
+Although JavaScript primitive types can’t be changed, the state of the variable that refers to a primitive type can. Therefore, you need to be able to provide, or at least emulate, immutable references to data so that your user-defined objects behave as if they were immutable.
+
+
+What are JS objects?
+
+Despite all the syntactic sugar added around classes in ES6, JavaScript objects are nothing more than bags of attributes that can be added, removed, and changed at any time. 
+
+
+What is the difference between OOP and FP?
+
+OOP focuses on logically connecting many data types with specialized behavior. FP focuses on connecting operations on those data types with composition.
+
+What is the focus between OOP and FP?
+
+The focus of OOP is to create inheritance hierarchies (such as Student from Parent) with methods and data tightly bound together. Functional programming, on the other hand, favors general polymorphic functions that crosscut different data types and avoid the use of 'this'.
+
+Can both OOP and FP be used?
+
+Yes, there is a sweet spot where both OOP and FP paradigms can be used productively. JavaScript allows you to work with both.
+
+How do you use both of them at the same time?
+	
+You need to treat objects as entities or values and separate their functionality into functions that work on these objects.
+
+How can you prevent an object’s internal state from changing? 
+
+ES6 uses the const keyword to create constant references. Encapsulation is a good strat- egy to protect against mutations
+
+For simple object structures, a good alternative is to adopt the Value Object pattern. A value object is one whose equality doesn’t depend on identity or reference, just on its value; once declared, its state may not change. In addition to numbers and strings, some examples of value objects are types like tuple, pair, point, zipCode, coordinate, money, date, and others.
+
+
+What is Object.freeze?
+
+JavaScript’s new class syntax doesn’t define keywords to mark fields as immutable, but it does support an internal mechanism for doing so by controlling some hidden object metaproperties like writable. By setting this property to false, JavaScript’s Object.freeze() function can prevent an object’s state from changing.
+
+
+Object.freeze() can also immobilize inherited attributes. So freezing an instance of Student works exactly the same way and follows the object’s prototype chain protect- ing every inherited Person attribute. But it can’t be used to freeze nested object attributes
+
+Object.freeze() is a shallow operation. To get around this, you need to manually freeze an object’s nested structure.
+
+
+What are the problems with using the method 'this'?
+
+
+With methods, you’re encouraged to use “this” to access the object’s state. Instance methods use “this” to access an object's data, which is a side effect. Using this is problematic because it gives you access to instance level data outside of the method scope, which causes side effects. 
+
+
+FP separates methods into general functions that can work across many types.
+
+Using FP, object data is not intimately coupled to specific parts of your code and is far more reusable and maintainable.
+
+
+get fullname() {
+	return [this._firstname, this._lastname].join(' ');
+}
+can be split out as follows:
+
+var fullname =
+	person => [person.firstname, person.lastname].join(' ');
+	// 
+	“this” is effectively replaced with the object passed in. 
+
+
+/* 
+
+
 /* Changing Impure to Pure Function */
 
 /* Impure */
@@ -231,5 +309,8 @@ function mult(...args) { // use gather operator; gather all into
 }
 
 mult(1,2,3,4); // 24
+
+
+
 
 
