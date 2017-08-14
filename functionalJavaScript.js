@@ -669,4 +669,27 @@ mult(1,2,3,4); // 24
 
 
 
+/* Example - Get top-rated netflix videos */
 
+var getTopRatedFilms = user => // create function that accepts user
+	user.videoLists. // object; each user obj has a videoLists array
+		map(videoList => // map over all videoList
+		videoList.videos.
+			filter(video => video.rating === 5.0)). // filter
+		concatAll(); // to only return films with rating of 5
+		// use concatAll to flatten the array into a list
+get TopRatedFilms(user).
+	forEach(film => console.log(film));
+
+
+/* Example - Drag Operation */
+
+var getElementDrags = elmt => // we should be able to see events
+	elmt.mouseDowns. // as a collection, like we do with functions
+		map(mouseDown =>
+			document.mouseMoves.
+				takeUntil(document.mouseUps)).
+		concatAll();
+		
+getElementDrags(image).
+	forEach(pos => image.position = pos);
