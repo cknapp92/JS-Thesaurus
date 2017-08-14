@@ -5,6 +5,14 @@ What is the basic focus of functional programming?
 
 Aligning the how with the what of a program. Making the technical details of writing in your code model very closely the form of what the program accomplishes. 
 
+FP involves breaking down the problem into smaller, atomic parts. It's a paradigm where if you follow certain rules and practices, you get benefits. They are very reusable, easy to maintain, testable and have a simple mental model and your app can scale horizontally. When you are working on a transformation, you are not as focused on the flow, you are more focus on a particular part of the problem. You don't have to worry about state management so much.
+
+What functional libraries help us accomplish the goals of FP?
+
+- rambda
+- underscore
+- lodash
+
 What is a function?
 
 A function is any callable expression that can be evaluated by applying the () operator to it. Functions can return either a computed value or undefined (void function) back to the caller. 
@@ -48,6 +56,8 @@ var multiplier = new Function('a', 'b', 'return a * b');
 multiplier(2, 3); //-> 6
 
 What is a higher-order function?
+
+Function that accepts or returns functions.
 
 In addition to being assignable, JavaScript functions like sort() accept other functions as arguments and belong to a category called higher-order functions.
 
@@ -113,6 +123,57 @@ Operations like map, reduce, and filter that allow you to traverse and transform
 
 These operations are so important that virtually all functional pro- grams use them in one way or another. They also facilitate removing manual loops from your code, because most loops are just specific cases handled by these functions.
 
+Typically the data flowing into an app starts as an array. Typical starting point for data. We deal with things in bulk in the form of arrays.
+
+Essentially, we are going from an array of things to something else. It fits the paradigm of starting with data, transforming the data and ending somewhere, which is the general structure of applications.
+
+What verbs do arrays in JS have built in?
+
+- filter
+	Filter is a kind of test function in comparison to map
+		It doesn't change every part of the array; only those items that pass the test
+	Accepts a lambda function; Removes things out of the array
+		items.filter((x) => x%2===0) // what's left are evens
+	[1,2,3].filter((x) => x%2===0); // [2]
+	["bacon cheeseburger", "bacon salad"].filter((x) => /bacon/.test(x) ); // ["bacon cheeseburger", "bacon salad"]
+- slice 
+	You take a slice of an array in a declarative way; items.slice(0,5)
+- concat
+	You combine items, accepts anything and returns a new array; items.concat([1,2,3])
+- map
+	Transforms each item in an array, returns new array; items.map(x => x * x);
+	Accepts a lambda function; 1st argument of lambda is a placeholder of each item as language loops through the array
+	Return value is added to the new array
+	You pass in a function of what you want it to do through each part in the loop; [1,2,3].map((x) => 2**x); // [2, 4, 8]
+- reduce
+	transform from array to anything
+		items.reduce((acc, cur) => acc + cur, 0);
+	accumulative = acc; start with an acc of 0
+	current = cur
+	from an array of something to something
+	takes a lambda function and initial accumulation value
+		the lambda function usually takes two values
+	[1, 3, 2, 5, 6, 8].reduce((acc, cur) => acc + cur, 0);
+		start with acc of 0, then acc + cur = 1, then 1 + cur = 4...
+	
+Possibilities with reduce: 
+	we can also shallow flatten arrays with reduce
+	you can write a function that splits arrays
+	you can compose functions (using spread operator)
+		
+- forEach
+	[1,2,3].forEach(x => console.log(x));
+	// 1
+	// 2
+	// 3
+
+The array is a kind of 'wonder' container. These verbs are associated with a bigger paradigm. You can tap into the power of composing these things together. To scale your app, you can use these building blocks (known as chaining).
+
+
+What is currying functions?
+
+You can write currying with reduce. 
+
 What is method chaining and method cascading? How are they different?
 
 
@@ -132,7 +193,6 @@ What other techniques replace looping?
 Another technique commonly used to replace loops is recursion, which you can use to abstract iteration when tackling problems that are “self-similar” in nature. For these types of problems, sequential function chains are inefficient and inadequate. Recursion, on the other hand, implements its own ways of processing data by yielding the heavy lifting of standard looping to the language runtime.
 
 What is recursion?
-
 
 Recursion is a technique designed to solve problems by decomposing them into smaller, self-similar problems that, when combined, arrive at the original solution. 
 
