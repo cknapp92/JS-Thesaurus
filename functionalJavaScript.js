@@ -1,8 +1,285 @@
 /* 
 
+
+What is the basic focus of functional programming?
+
+Aligning the how with the what of a program. Making the technical details of writing in your code model very closely the form of what the program accomplishes. 
+
+What is a function?
+
+A function is any callable expression that can be evaluated by applying the () operator to it. Functions can return either a computed value or undefined (void function) back to the caller. 
+
+Because FP works a lot like math, functions are meaningful only when they produce a usable result (not null or undefined); otherwise, the assumption is that they modify external data and cause side effects to occur.
+
+What is the difference between function expressions and function statements?
+
+expressions (functions that produce a value) 
+statements (functions that don’t)
+
+
+What's an indication that a function describes the what instead of the how?
+
+When the pseudocode (in basic words what the function is doing) corresponds closes to a literal reading of the actual code.
+
+
+What is the functional approach to solving a problem?
+
+
+Sometimes a problem is difficult and complex to tackle head on. When this occurs, you should immediately look for ways to decompose it. If the problem can be broken down into smaller versions of itself, you may be able to solve the smaller version and build it up to solve the entire problem. 
+
+What's the advantage of using a declarative style of programming?
+
+Using the declarative style, you can focus on what the output of the applcation will be instead of how to get there, facilitating deeper reasoning in your application.
+
+Because it’s declarative, it describes what the data output is and not how it came to be.
+
+An imperative program flow is radically different from a functional program flow. A functional flow gives you a clear picture as to the purpose of the pro- gram without revealing any of its internal details, so that you can reason more deeply about the code as well as how data flows into and out of the different stages to pro- duce results.
+
+
+What is a first-class function?
+
+the term first-class comes from making functions actual objects in the language—also called first-class citizens.
+
+
+Although not common practice, functions can also be instantiated via constructors, which is proof of their first-class nature in JavaScript. The constructor takes the set of formal parameters, the function body, and the new keyword, like so:
+
+var multiplier = new Function('a', 'b', 'return a * b');
+
+multiplier(2, 3); //-> 6
+
+What is a higher-order function?
+
+In addition to being assignable, JavaScript functions like sort() accept other functions as arguments and belong to a category called higher-order functions.
+
+Because functions behave like regular objects, you can intuitively expect that they can be passed in as function arguments and returned from other functions. These are called higher-order functions. 
+
+Because functions are first-class and higher-order, JavaScript functions can behave as values, which implies that a function is nothing more than a yet-to-be-executed value defined immutably based on the input provided to the function.
+
+Using higher-order functions declaratively makes it obvious how data transforms in each node, revealing more insights about your data.
+
+What is closure and why is it useful for functional programming?
+
+A closure is a data structure that binds a function to its environment at the moment it’s declared. It’s based on the textual location of the function declaration; therefore, a closure is also called a static or lexical scope surrounding the function definition. Because it gives functions access to its surrounding state, it makes code clear and read- able. As you’ll see shortly, closures are instrumental not only in functional programs when you’re working with higher-order functions, but also for event-handling and callbacks, emulating private variables, and mitigating some of JavaScript’s pitfalls.
+
+What is the problem with the global scope and global data?
+
+In the global scope, every line that executes causes visible changes to occur.
+It’s tempting to use global variables, but they’re shared among all scripts loaded onto the page, which can easily lead to namespace collisions if your JavaScript code isn’t pack- aged into modules. Polluting the global namespace can be problematic because you run the chance of overriding variables and functions declared in different files.
+Global data has the detrimental effect of making programs hard to reason about because you’re obligated to keep a mental note of the state of all variables at any point in time. This is one of the main reasons program complexity increases as your code becomes larger. It’s also conducive to having side effects in your functions, because you inevitably create external dependencies when reading from or writing to it.
+
+when writing in an FP style, you’ll avoid using global variables at all cost.
+
+
+How does JS's scoping mechanism work?
+
+It begins by checking the innermost scope and works its way outward. JavaScript’s scoping mechanism works as follows:
+1 It checks the variable’s function scope.
+2 If not in the local scope, it moves outward into the surrounding lexical scope,
+searching for the variable reference until it reaches the global scope.
+3 If the variable can’t be referenced, JavaScript returns undefined.
+
+An internal JavaScript mechanism hoists variable and function declarations to the top of the current scope—the function scope, in this case. 
+
+
+Is there block scope in JS?
+
+Because JavaScript has function scope exclusively, any variables declared in a block are accessible at any point in the function.
+
+if (someCondition) {
+           var myVar = 10;
+}
+
+Variables declared in if statements are accessible from outside the code block.
+
+However, ES6 JavaScript provides the let keyword to help resolve this loop-counter ambiguity by properly binding the loop counter to its enclosing block:
+
+for(let i = 0; i < arr.length; i++) {
+	// ...
+}
+i;  // i === undefined
+
+let resolves the hoisting problem and scopes i in the right place. Outside the loop, i isn’t defined.
+
+Can you emulate private variables in JS?
+
+JavaScript doesn’t have a native keyword for private variables and functions to be accessed only in the scope of an object.
+
+Using closures, however, it’s possible to emulate this behavior. One example is returning an object, much like zipCode and coordinate in the earlier example. These functions return object literals with methods that have access to any of the outer func- tion’s local variables, but don’t expose these variables, therefore effectively making them private.
+
+
+What are operations like map, filter, reduce? Why are they useful?
+
+Operations like map, reduce, and filter that allow you to traverse and transform data structures in a sequential manner.
+
+These operations are so important that virtually all functional pro- grams use them in one way or another. They also facilitate removing manual loops from your code, because most loops are just specific cases handled by these functions.
+
+What is method chaining and method cascading? How are they different?
+
+
+Method chaining is an OOP pattern that allows multiple methods to be called in a single statement. When these methods all belong to the same object, method chaining is referred to as method cascading. Although this pattern is seen mostly in object-oriented applications, under certain conditions, such as working with immutable objects, it works just as well with functional programming. 
+
+
+Method chaining is an OOP pattern that allows multiple methods to be called in a single statement. When these methods all belong to the same object, method chaining is referred to as method cascading. Although this pattern is seen mostly in object-oriented applications, under certain conditions, such as working with immutable objects, it works just as well with functional programming. 
+
+
+Is chaining possible for arrays as well as strings?
+
+Wouldn’t it be nice to translate this pattern to work with arrays as well? The behavior we see in strings has also been extended to work with JavaScript arrays, but most people aren’t familiar with it and resort to quick-and-dirty for loops.
+
+
+What other techniques replace looping?
+
+Another technique commonly used to replace loops is recursion, which you can use to abstract iteration when tackling problems that are “self-similar” in nature. For these types of problems, sequential function chains are inefficient and inadequate. Recursion, on the other hand, implements its own ways of processing data by yielding the heavy lifting of standard looping to the language runtime.
+
+What is recursion?
+
+
+Recursion is a technique designed to solve problems by decomposing them into smaller, self-similar problems that, when combined, arrive at the original solution. 
+
+What are the parts of a recursive function?
+
+
+	A recursive function has two main parts:
+■ Base cases (also known as the terminating condition)
+■ Recursive cases
+
+
+What is a base case?
+
+
+The base cases are a set of inputs for which a recursive function computes a concrete result, without having to recur. The recursive case deals with a set of inputs (necessar- ily smaller than the original) for which the function calls itself. If the input isn’t smaller, the recursion runs indefinitely until the program crashes. As the function recurs, the nature of the inputs unconditionally become smaller, finally reaching the instance for which the base case is triggered and the process terminates with a value.
+
+
+What is recursive thinking?
+
+Recursive thinking takes itself or a modified version of itself into consideration. A recursive object is self-defining; for instance, think of the composition of branches in a tree. A branch has leaves as well as other branches, which in turn have more leaves and more branches. This process continues indefinitely and is halted only by a limit- ing external factor—the size of the tree, in this case.
+
+
+What is the difference between recursion and iteration?
+
+Recursion and iteration are two sides of the same coin. In the absence of mutation, recursion offers a more expressive, powerful, and excellent alternative to iteration. In fact, pure functional languages don’t even have standard looping constructs like do, for, and while, since all looping is done recursively. Recursion also leads to code that’s easier to understand because it’s premised on repeating the same actions multi- ple times on smaller input. 
+
+What is the main mechanism for code reuse in OOP?
+
+Object-oriented programs use inheritance as the main mechanism for code reuse. Recall from the previous chapter that Student inherits from Person, and that all state and methods are inherited by the child type. 
+
+
+What is the main mechanism for code reuse in FP?
+
+Functional programming takes a different approach. Instead of creating new data structure classes to meet specific needs, it uses common ones like arrays and applies a number of coarse-grained, higher-order operations that are agnostic to the underlying representation of the data.
+
+These operations are designed to do the following:
+■ Accept function arguments in order to inject specialized behavior that solves your particular task
+■ Replace the traditional, manual looping mechanisms that contain mutations of temporary variables and side effects, thereby creating less code to maintain and fewer places where errors can occur
+
+
+Can you map (use the map function) over things other than arrays?
+
+Yes, for example, mapping over containers. The concept of mapping over data structures (in this case, an array) to transform the constituent values has far-reaching implications. Just as you can map any function over an array, you can also map a function over any object.
+
+
+How do you gather meaningful results from your data?
+
+Suppose you want to compute the country with the largest count from a collection of Person objects. You can use the reduce function to accomplish this.
+reduce is a higher-order function that compresses an array of elements down to a single value. This value is computed from the accumulated result of invoking a func- tion with an accumulator value against each element.
+
+Reducing an array into a single value. Each iteration returns an accumulated value based on the previous result; this accumulated value is kept until you reach the end of the array. The final outcome of reduce is always a single value.
+
+What's an alternative to map and filter?
+
+An alternative to combining map and filter is to use a concept called array compre- hension, also known as list comprehension. It’s a functional feature that encapsu- lates the functionality of map and filter into a concise syntax using the for...of and if keywords, respectively:
+
+[for (x of iterable) if (condition) x]
+
+let iterable = [10, 20, 30];
+
+// Iterate over array
+
+for (const value of iterable) {
+	console.log(value);
+}
+// 10
+// 20
+// 30
+
+// Iterate over string
+
+let iterable = 'boo';
+
+for (let value of iterable) {
+	console.log(value);
+}
+// "b"
+// "o"
+// "o"
+
+
+What is the module pattern?
+
+Closures can also provide a way to manage your global namespace to avoid globally shared data. Library and module authors take closures to the next level by hiding an entire module’s private methods and data. This is referred to as the Module pattern because it uses a single immediately invoked function expression (IIFE) to encapsulate internal variables while allowing you to export the necessary set of functionality to the outside world and severely reduce the number of global references.
+
+
+NOTE: As a general best practice, I recommend packaging all of your functional code inside well-encapsulated modules. You can transfer all the core principles of functional programming you’ve learned in this book to the level of modules.
+
+
+What are callbacks?
+
+JavaScript’s first-class, higher-order functions can be passed into other functions as callbacks. Callbacks are useful as hooks to handle events in an unobtrusive manner. Suppose you need to make a request to the server and want to be notified once the data has been received. The traditional idiom is to provide a callback function that will handle the response.
+
+
+
+getJSON('/students',
+	(students) => {
+ 		getJSON('/students/grades',
+			grades => processGrades(grades),
+			error =>  console.log(error.message));
+},
+(error) =>
+		console.log(error.message)
+)
+
+getJSON is a higher-order function that takes two callbacks as arguments: a success function and an error function. 
+
+
+What are some different function forms?
+
+1) declared function
+
+function multiplier(a,b) {
+					 return a * b;
+}
+
+2) anonymous function (assigned to a variable)
+
+var square = function (x) { 
+	return x * x;
+}
+
+The right side of an anonymous function expression is a function object with an empty name property. You can use anonymous functions to extend or specialize a function’s behavior by passing them as arguments.
+
+3) lambda expression
+
+var square = x => x * x;
+
+
+4) assigned to object properties as methods
+
+	var obj = {
+			method: function (x) { return x * x; }
+};
+
+Why assign functions to variables?
+
+Because they’re first- class, functions can be assigned to variables and executed at a later time. 
+
 What is state? Is it easy to manage state in JS?
 
 The state of a program can be defined as a snapshot of the data stored in all of its objects at any moment in time. No, sadly JavaScript is one of the worst languages when it comes to securing an object’s state. A JavaScript object is highly dynamic, and you can modify, add, or delete its properties at any point in time. 
+
+
+What is a node?
+
+ A node is an object that contains a value, a reference to its parent, and an array of children. If a node has no parent, it’s considered the root. 
 
 
 Why are string and numbers the easiest types to work with?
@@ -50,6 +327,18 @@ Object.freeze() can also immobilize inherited attributes. So freezing an instanc
 
 Object.freeze() is a shallow operation. To get around this, you need to manually freeze an object’s nested structure.
 
+How does the 'this' reference work?
+
+unlike in other programming languages, the this reference is set based on how the function is used (globally, as an object method, as a constructor, and so son) and not by its lexical context (its location in the code).
+
+
+This can lead to code that’s hard to understand, because you need to pay close attention to the context in which a function is executing.
+
+
+Is 'this' used in functional programming?
+
+the use of this in functional code is rarely seen (in fact, it’s avoided at all costs). It’s heavily used by library and tool implement- ers for special cases that demand bending the language context to perform incredible feats. These often involve the function methods apply and call.
+
 
 What are the problems with using the method 'this'?
 
@@ -71,6 +360,13 @@ var fullname =
 	person => [person.firstname, person.lastname].join(' ');
 	// 
 	“this” is effectively replaced with the object passed in. 
+
+
+What are the functions call and apply?
+
+JavaScript supports calling functions via the function methods (like meta-functions) call and apply, which belong to the function’s prototype. 
+
+Both methods are used extensively when scaffolding code is built so that API users can create new functions from existing ones.
 
 
 /* 
