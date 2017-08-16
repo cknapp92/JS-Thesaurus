@@ -1,7 +1,19 @@
 /* This is just a compilation of techniques I've discovered or tested to solve various problems in JavaScript. I wanted a place to centralize and review all of the notes that I have made in coming up with various solutions to challenging problems */
 
 
-/* Get the last character in a string */
+
+/* Return the first character in a string */
+
+function firstChar (string) {
+	return string.charAt(0);
+}
+
+firstChar('anything'); // "a"
+
+
+
+
+/* Return the last character in a string */
 
 function lastCharString (string) {
 	return string[string.length - 1];
@@ -9,7 +21,18 @@ function lastCharString (string) {
 
 lastCharString('anything'); // "g"
 
-/* Get the last element in an array */
+
+
+
+
+
+
+
+
+
+
+
+/* Get the last item in an array */
 
 function lastCharArray (array) {
 	return array[array.length - 1];
@@ -19,7 +42,10 @@ var arr1 = ['hello', 'hi', 'здравствуйте'];
 
 lastCharArray(arr1); // "здравствуйте"
 
-/* Function - iterate contents of an array */
+
+
+
+/* Iterate contents of an array */
 
 function iterateArray (array) {
 	for (let i = 0; i < array.length; i++) {
@@ -33,6 +59,10 @@ iterateArray(arr4);
 // kumkwat
 // pumpkin
 // rhubarb
+
+
+
+
 
 /* Get the highest value of a series of numbers */
 
