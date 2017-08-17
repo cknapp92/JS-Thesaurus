@@ -846,6 +846,49 @@ console.log(getRandomColor()); // #D0A34A
 
 
 
+// Make a censoring program 
+
+const CHAR = 'X'
+const BANNED = ['nice', 'is', 'stupid', 'potato']
+
+const censor = (sentence) => sentence
+	.split(/\b/)
+	.map(word => BANNED.includes(word.toLowerCase()) ? CHAR.repeat(word.length) : word)
+	.join('')
+	
+	
+censor('that is a nice tie'); // "that XX a XXXX tie"
+
+
+
+// FP - Capitalize 
+
+function titleCase(str) {
+		return str.toLowerCase()
+			.split(" ")
+			.map(function(v){return v.charAt(0).toUpperCase() + v.slice(1)})
+			.join(" ");
+}
+
+titleCase('something') // "Something"
+
+
+
+// FP - Find digital sum of number
+
+const digitalSum = num => num
+	.toString() // convert num to string; "24"
+	.split('') // split string into array by empty string; ["2", "4"]
+	.map(c => parseInt(c)) // convert each digit from string to num
+	.reduce((a,b) => a + b) // reduce the list by sum function
+
+
+// Find shortest word in array, where not every element is a string
+
+const findShortestWord = arr => arr
+	.filter(e => typeof e === 'string')
+	.sort((a, b) => a.length - b.length)[0];
+
 
 
 /* Create HTML tags function */
