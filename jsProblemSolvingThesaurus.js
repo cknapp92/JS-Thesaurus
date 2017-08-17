@@ -2,6 +2,32 @@
 
 
 
+/* Return a range of numbers, sequentially */
+
+
+const range = n => [...Array(n).keys()];
+
+	[...Array(4).keys()]; // 0 1 2 3
+	
+// or
+	
+const range = n => Array(n).fill().map((_, i) => i);
+
+	Array(5).fill().map((_, i) => i); // [0, 1, 2, 3, 4]
+	
+	
+/* Return an array of numbers in sequential order */
+
+
+function range(n){
+	return Array.apply(null, Array(n)).map((_, i) => i);
+} 
+
+range(3); // [0, 1, 2]
+
+
+
+
 /* Return the first character in a string */
 
 function firstChar (string) {
@@ -23,7 +49,42 @@ lastCharString('anything'); // "g"
 
 
 
+/* Get the length of the longest word in sentence. */
 
+function getLongestWordLength(str){
+	return Math.max(...(str.split(' ').map(s => s.length))); // use the spread operator (...) to spread the array as arguments to Math.max.
+}
+
+
+
+
+/* Add another item to an array */
+
+var items = [1,2];
+var newItems = items.concat(3,4,5);
+
+console.log(newItems); // [1,2,3,4,5];
+
+var newItems2 = items.concat([3,4,5]);
+
+console.log(newItems2); // [1,2,3,4,5]; // same result b/c concat looks at all arguments individually
+// you cannot do nested arrays with concat
+
+
+
+
+/* Convert array to string */
+
+var names = ['Shane', 'Alan', 'Fred'];
+
+names.join( ); // "Shane,Alan,Fred"
+
+// the comma is the default argument to join
+
+// numbers of the items in the array doesn't matter
+// can provide whatever argument you want
+
+names.join('-'); // "Shane-Alan-Fred"
 
 
 
@@ -740,12 +801,54 @@ var arr3 = [5, 5, 5];
 arr3.every(x => x%2 === 1); // true
 
 
+/* FP - Fizz Buzz Challenge */
+
+
+const range = n => [...Array(n).keys()];
+
+/*
+FIRST LIST ALTERNATIVE:
+
+function range(n){
+	return Array.apply(null, Array(n)).map((_, i) => i);
+} */
+
+function fizzBuzzTest(n){
+	var by3 = n % 3 === 0;
+	var by5 = n % 5 === 0;
+
+	return  by3 && by5 ? 'fizz buzz'
+							 : by3 ? 'fizz'
+							 : by5 ? 'buzz'
+										 : n;
+}
+
+function fizzBuzz(n){
+	return range(n).map(x => fizzBuzzTest(x + 1)).join(', ');
+
+}
+
+document.write(fizzBuzz(100));
+
+
+// Get random color function - in hexadecimal 
+
+function getRandomColor() {
+	var length = 6;
+	var chars = '0123456789ABCDEF';
+	var hex = '#';
+	while(length--) hex += chars[(Math.random() * 16) | 0];
+	return hex;
+}
+
+
+console.log(getRandomColor()); // #D0A34A
+
+
+
+
 
 /* Create HTML tags function */
-
-
-
-
 
 
 
