@@ -247,7 +247,7 @@ Reducing an array into a single value. Each iteration returns an accumulated val
 
 What's an alternative to map and filter?
 
-An alternative to combining map and filter is to use a concept called array compre- hension, also known as list comprehension. It’s a functional feature that encapsu- lates the functionality of map and filter into a concise syntax using the for...of and if keywords, respectively:
+An alternative to combining map and filter is to use a concept called array comprehension, also known as list comprehension. It’s a functional feature that encapsu- lates the functionality of map and filter into a concise syntax using the for...of and if keywords, respectively:
 
 [for (x of iterable) if (condition) x]
 

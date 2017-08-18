@@ -804,7 +804,7 @@ arr3.every(x => x%2 === 1); // true
 /* FP - Fizz Buzz Challenge */
 
 
-const range = n => [...Array(n).keys()];
+const range = n => [...Array(n).keys()]; //provides a range of numbers
 
 /*
 FIRST LIST ALTERNATIVE:
@@ -863,15 +863,19 @@ censor('that is a nice tie'); // "that XX a XXXX tie"
 
 // FP - Capitalize 
 
-function titleCase(str) {
-		return str.toLowerCase()
-			.split(" ")
-			.map(function(v){return v.charAt(0).toUpperCase() + v.slice(1)})
-			.join(" ");
-}
-
+const titleCase = str => str
+	.toLowerCase()
+	.split(' ')
+	.map(v => v
+		.charAt(0)
+		.toUpperCase() + v
+		.slice(1))
+	.join(' '); // need space in join to capitalize mult words
+	
+	
 titleCase('something') // "Something"
 
+titleCase('something green'); // "Something Green"
 
 
 // FP - Find digital sum of number
@@ -888,6 +892,23 @@ const digitalSum = num => num
 const findShortestWord = arr => arr
 	.filter(e => typeof e === 'string')
 	.sort((a, b) => a.length - b.length)[0];
+	
+	
+// map properties onto new objects
+	
+var map = function(arr, property) { 
+		var m = arr.map(makeKv);
+
+		function makeKv(item, index) {
+			var ret = {};
+			ret[item[property]] = index;
+			return ret;
+		};
+
+		console.log("m : ", m);
+	}
+
+	map([{name: "Kevin"}, {name: "Bob"}], 'name');
 
 
 
