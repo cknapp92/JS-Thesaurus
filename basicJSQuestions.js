@@ -109,6 +109,48 @@ Source: https://stackoverflow.com/questions/762011/whats-the-difference-between-
 
 
 
+What is an API?
+
+Stands for application programming interface. Allows you to programmatically interact with another program. The objects and methods you can use in any given environment. In the browser, it is called the DOM to interact with webpages.
+
+
+What is a Rest API?
+
+REST API allows you to interact with objects and actions via http requests rather than Javascript directly. Most websites that provide an api provide some documentation on how you can interact with it.
+
+
+
+
+What are the types of events in a JS program?
+
+Two: a user a event and a system event. You can use callback functions to handle events
+
+User Event
+	ex: mouse click; when a click happens on a button, an event is triggered and an alert is shown
+System Event
+	ex: setTimeout - timeout gets executed after a given time. The system is what triggers the timeout, though the developer may decide the time when callback is executed.
+	
+	ex: ready state change of an ajax request. ready state change handler triggered by the system when it gets through different stages of the request (when it sends the request, when it loads data in, and when it's finished)
+	
+	there are a number of system events in node.js like reading data from url or file, when an action is completed and various error handling events
+	
+	
+
+What is a route?
+
+Routes are common to express and other web frameworks. To user, it is just the url. It's called a route b/c its the path a user takes to access data on the server. A route is sometimes an endpoint. From the application's perspective, a route provides the instructions to trigger a set of programming.
+
+
+What is a client?
+
+The device that is used to visit a website. We can think of a client as a web browser (the routes are just the urls you type into the browser). The server knows how and when to serve data to the client b/c makes an http request to the server. Request is the technical name for what happens when you type  a url into your browser. The browser is making a url request to the server at the url address you typed in. 
+
+http requests can be made in many ways. One of them is known as a get request. When the client makes a get request, the server can return a variety of responses. If the client made a get request to a route that the server is set up to respond to, the server will send a response, otherwise it sends back an error (i.e. a 404 error).
+
+	
+
+What is JSON?
+
 
 
 What is an object?
@@ -306,6 +348,143 @@ Executes a block of code if true or another block if false
 What are branches?
 
 The paths that an if-else statement follows are known as branches. The flow of execution based on a condition. They branch the flow of your program's logic in different directions based on the results of the conditional test. You can branch off in as many directions as you want.
+
+
+
+
+
+What is the switch statement for?
+
+Used for multiple branching logic (not two-way branch; if-else). switch is similar to an if statement. It has parens, with curly braces that hold code. 
+
+var x = 0;
+
+switch (x) {
+	case 0:
+		console.log('yes');
+		break;
+	case 1:
+		console.log('no')
+		break;
+	default:
+		console.log('invalid')
+		break;
+} 
+
+All cases are contained within one block of code, with the keyword case.
+
+Consider the value x, if it is equal to 0, run this block of code. When it reaches the break statement, it jumps the block of code to the next set of instructions.
+
+If break is missing, the statement will fall through to the next code and unexpected things can happen. That's why the switch statement is not always considered the best practice.
+
+default statement acts like the else block in an if-else statement.
+
+A switch statement saves you a lot of typing in comparison to if-else branching.
+
+
+
+
+
+What is a ternary operator?
+
+a compact, two-way branch conditional expression. It is used to write compact code. Called ternary because it involves three expressions.
+
+<boolean> ? <expression if true> : <expression if false>
+
+Ex:
+if (isTrue) {
+	console.log ('yes');
+} else {
+	console.log ('no');
+}
+
+
+isTrue ? console.log ('yes') : console.log ('no');
+
+
+Usually seen as:
+
+var yesOrNo = isTrue ? 'yes' : 'no';
+
+console.log(yesOrNo);
+
+
+
+
+What is the module pattern?
+
+You don't want to clutter the global namespace. A simple function that prints a string... 
+
+function foo() {
+	console.log('foobar');
+}
+
+...is  accessable in the global namespace (when we type the function name 'foo'). This is cluttering the global namespace
+
+It's a problem because so much is happening in the browser, you may have several JS libraries in your application (i.e. jQuery, angular, etc) loaded onto the page.
+
+If you have to navigate many variables that clutter the global namespace, it can be a problem if you have the same names between variables.
+
+We can wrap the function in parens to solve this problem. Treat this function as an expression to be evaluated immediately that doesn't require naming.
+
+(function(){
+function foo() {
+	console.log('foobar');
+}
+
+foo();
+}());	
+	
+	
+We can't access the function 'foo' from the console anymore (it is undefined); a sign that the global namespace is less cluttered.
+
+Another form:
+
+!function(){
+function foo() {
+	console.log('foobar');
+}
+
+foo(); 
+}();
+
+
+We can also import other globals to be used within the module, but with a reference locally within the module. For example, underscore. We're going to bring it in as a parameter
+
+!function(_){
+	underscore.someawesomemethod = "something";
+	console.log(underscore.VERSION);
+}(_);
+
+
+
+What is the module export pattern?
+
+Ex: 
+var awesomeNewModule = (function(){
+	var exports = {};
+	exports.helloMars = function() {
+		console.log('hello mars');
+	};
+	return exports
+}());
+
+awesomeNewModule.helloMars() // 'hello mars'
+
+// have access to this in the console, but don't have access to the variables globally
+
+
+What is the point of writing modular code?
+
+You split your app into pieces that don't depend onto each other. If one intrroduces a breaking error into the code, it doesn't affect the rest of the code. 
+
+
+What is loose augmentation?
+
+What is the submodule pattern?
+
+
+
 
 
 */
