@@ -19,9 +19,8 @@ const range = n => Array(n).fill().map((_, i) => i);
 /* Return an array of numbers in sequential order */
 
 
-function range(n){
-	return Array.apply(null, Array(n)).map((_, i) => i);
-} 
+const range = n => Array.apply(null, Array(n)).map((_, i) => i);
+
 
 range(3); // [0, 1, 2]
 
@@ -81,7 +80,6 @@ names.join( ); // "Shane,Alan,Fred"
 
 // the comma is the default argument to join
 
-// numbers of the items in the array doesn't matter
 // can provide whatever argument you want
 
 names.join('-'); // "Shane-Alan-Fred"
@@ -139,6 +137,9 @@ var arr2 = [25, 62, 24, 1];
 
 getMax(arr2); // 62
 
+
+
+
 /* Function - return highest value in array - for loop */ 
 
 function largest (array) {
@@ -160,11 +161,15 @@ var arr3 = [2, 0, 3, -2];
 largest(arr3); // 3
 
 
+
+
+
+
 /* To return the lowest value in an array */
 
-function getMin(numArray) {
-	return Math.min.apply(null, numArray)
-} 
+Math.min.apply(null, Array)
+
+var arr1 = [1, 2, 3];
 
 
 /* Function - return multiples of three in a new array */
@@ -186,6 +191,8 @@ multiplesOfThree(arr3); // (2) [0, 3]
 
 
 
+
+
 /* Split a string into an array of strings */
 
 var numList = "4 6 2 3"; // string of numbers
@@ -199,6 +206,10 @@ arrayOfStrings (numList); // ["4", "6", "2", "3"]
 
 typeof arrayOfStrings(numList); // "object"
 typeof numList; // "string"
+
+
+
+
 
 
 /* split part of a string into an array of strings */
@@ -232,11 +243,6 @@ function reverseStr () {
 } // "gnihtyna"
 
 
-for (let i = 0; i < str.length; i++) {
-	str = str.charAt(i);
-	print str;
-}
-
 
 /* How to print out each letter of a word in console (with charAt() method) */
 
@@ -249,6 +255,8 @@ function printer () {
 }
 
 printer();
+
+
 
 /* Push a sequence of numbers into an array (i.e. 1 to 10) */
 
@@ -323,7 +331,7 @@ function squareRoot (x) {
 +function(val){  return val } // NaN
 
 
-/* to combine an array of strings into a single string */
+/* Array into string */
 
 // using concat method
 
@@ -631,7 +639,7 @@ countDown(5);
 /* Function - sum numbers in an array */
 
 function sum (list) {
-	var sum = 0;
+	var i = 0;
 	
 	list.forEach(function (number){
 		sum = sum + number;
@@ -736,6 +744,8 @@ function filter100 (arrayOfNum) {
 	})
 }
 
+arr.filter(i => i >= 100);
+
 var arr1 = [3, 200, 90, 102, 300];
 
 filter100(arr1); // [200, 102, 300]
@@ -743,48 +753,24 @@ filter100(arr1); // [200, 102, 300]
 
 /* Function - filter even numbers in array */
 
-function evenMaker (arrayOfNum) {
-	return arrayOfNum.filter(function(number){
-		return number % 2 === 0;
-	})
-}
-
 var arr1 = [3, 200, 90, 102, 300];
 
-evenMaker(arr1); // [200, 90, 102, 300]
+arr.filter(i => i % 2 === 0);
 
 
-/* Convert from string (w/ commas) to array  */
 
-function Str2Array (string) {
-	return string.split(",");
-}
+/* String (w/o commas) to array  */
 
-var message = "anything, everything, something";
+var string = "that is cool lol";
 
-Str2Array(message); // ["anything", " everything", " something"]
-
-
-/* Convert from string (w/o commas) to array  */
-
-function Str2Array (string) {
-	return string.split(" ");
-}
-
-var message = "that is cool lol";
-
-Str2Array(message); // ["that", "is", "cool", "lol"]
+string.split(' '); // ["that", "is", "cool", "lol"]
 
 
 /* Convert from array to string */
 
-function Array2String (array) {
-	return array.join(" ");
-}
-
 var arr = ["that", "is", "cool", "lol"];
 
-Array2String(arr); // "that is cool lol"
+array.join(' '); // "that is cool lol"
 
 
 
