@@ -2,49 +2,33 @@
 
 
 
-/* Return a range of numbers, sequentially */
+/* Make array with range of numbers */
 
-
-const range = n => [...Array(n).keys()];
-
-	[...Array(4).keys()]; // 0 1 2 3
+	[...Array(4).keys()]; // [0,1,2,3]
 	
 // or
-	
-const range = n => Array(n).fill().map((_, i) => i);
 
 	Array(5).fill().map((_, i) => i); // [0, 1, 2, 3, 4]
 	
+// or
 	
-/* Return an array of numbers in sequential order */
-
-
-const range = n => Array.apply(null, Array(n)).map((_, i) => i);
-
-
-range(3); // [0, 1, 2]
+Array.apply(null, Array(5)).map((_, i) => i); // [0, 1, 2]
 
 
 
 
 /* Return the first character in a string */
 
-function firstChar (string) {
-	return string.charAt(0);
-}
-
-firstChar('anything'); // "a"
+'anything'.charAt(0); // "a"
 
 
 
 
 /* Return the last character in a string */
 
-function lastCharString (string) {
-	return string[string.length - 1];
-}
+var str = 'anything';
 
-lastCharString('anything'); // "g"
+str[str.length - 1]; // "g"
 
 
 
@@ -129,9 +113,7 @@ Math.max(10, -20, 15, 24); // 24
 
 /* Return the highest value in array - Math.max.apply */
 
-function getMax(numArray) {
-	return Math.max.apply(null, numArray);
-}
+Math.max.apply(null, arr2);
 
 var arr2 = [25, 62, 24, 1];
 
@@ -305,9 +287,9 @@ mapping(str); // (4) [1, 2, 4, 5]
 
 var arr1 = [5, 2, 10];
 
-Math.max(...arr1); // 10
+Math.max(...arr); // 10
 
-Math.min(...arr1); // 2
+Math.min(...arr); // 2
 
 
 
@@ -348,29 +330,16 @@ Math.abs(num) => Always positive
 -Math.abs(num) => Always negative
 
 
-function smth (arr) {
-	if (arr[i] < 0) {numbers.map(function() {
-		return x * 2;
-}
-
-
-
 
 /* Quicker method to turn positive numbers to negative and vice versa */
 
 var arr1 = [8, 0, -3, 4];
 
-function invert(array) {
-	return array.map( x => x === 0 ? x : -x);
-} // [-8, 0, 3, -4]
+arr1.map( x => x === 0 ? x : -x); // [-8, 0, 3, -4]
 
-function invert(array) {
-	return array.map(x => x && -x);
-} // [-8, 0, 3, -4]
+arr1.map(x => x && -x); // [-8, 0, 3, -4]
 
-function invert(array) {
-	return array.map(i => 0 - i);
-} // " "
+arr1.map(i => 0 - i);
 
 
 
@@ -378,74 +347,52 @@ function invert(array) {
 
 var arr1 = ['Apple', 'Banana', 'Pear'];
 
+arr1.map(function(i){
+	return i + this;
+}, 's') //["Apples", "Bananas", "Pears"] // taken from scriptverse
 
-var adder = arr1.map(function(array){
-	return array + this;
-}, 's'); 
-
-console.log(adder); //["Apples", "Bananas", "Pears"] // taken from scriptverse
-
-
-//my version (for letters)
-
+// my version
 
 var arr4 = ["kumkwat", "pumpkin", "rhubarb"];
 
-function adder (array) {
-	return array.map(i => i +'s');
-} 
-
-adder(arr4); // (3) ["kumkwats", "pumpkins", "rhubarbs"]
+arr4.map(i => i +'s');  // ["kumkwats", "pumpkins", "rhubarbs"]
 
 
 
 
-/* How to add numbers to elements over an array of numbers */
+/* Add numbers to elements over an array of numbers */
 
 
 var items = [1,2,3];
+
+
 items.map(function(item) { 
 	return item + 1;
 }); // [2,3,4];
 
+items.map(i => i + 1); // [2,3,4];
 
-function adder (array) {
-	return array.map(i => i +1);
-} 
-
-adder(items); // (3) [2, 3, 4]
 
 
 
 /* Check whether strings in an array contain palindromes */
 
-var items = ['mom', 'dad', 'brother'];
-items.map(function(item) {
-	return item.split('').reverse().join('') === item;
-}); // (3) [true, true, false]
 
-/* how I rewrote it: */
+var items = ["mom", "brother", "evade me dave"];
 
-var items = ["mom", "dad", "evade me dave", "otto"];
-
-function palindromer (array) {
-	return array.map(i => i.split('').reverse().join('') === i);
-}
-
-palindromer(items); // (4) [true, true, false, true]
+items.map(i => i.split('').reverse().join('') === i); // [true, true, false, true]
 
 // doesn't work with strings with spaces 
 
 
 
 
+
 /* Challenge - make a function that returns only the last three letters of any string that you pass into it */
 
-var lastThree = function (string) {
-	return string.slice(string.length - 3).toUpperCase();
-}
+var str = 'hello';
 
-lastThree('dingus'); // "GUS"
+str.slice(str.length - 3).toUpperCase(); // "LLO"
 
 
 
@@ -685,6 +632,7 @@ function doublesWithMap (list) {
 		return number * 2;
 	})
 	return result;
+	
 } // whenever we want to create a new array from an existing array, we use map function
 // when we use map it calls the function on each element (i.e. number * 2); so it is useful when we want some operation done to each element of the array, otherwise leaving it unchanged
 
@@ -714,13 +662,16 @@ getFirstLetters(arr4); // ["k", "p", "r"]
 
 
 
+
+
 /* Flip boolean values in array */
 
-var boolean1 = [true, false, true, true, false];
+var arr = [true, false, true, true, false];
 
-boolean1.map(function(value){
-		return !value; 
-	}) // [false, true, false, false, true]
+arr.map(i => !i); // [false, true, false, false, true]
+	
+	
+	
 	
 // or... as a function:
 	
