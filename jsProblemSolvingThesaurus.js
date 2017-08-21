@@ -16,6 +16,8 @@ Array.apply(null, Array(5)).map((_, i) => i); // [0, 1, 2]
 
 
 
+Array(5).fill().map((_, i) => i[Math.floor(Math.random(Array.length)])]); 
+
 
 /* Return the first character in a string */
 
