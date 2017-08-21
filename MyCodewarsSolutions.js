@@ -99,3 +99,16 @@ function digitize(n) {
 //refactored
 const digitize = n => ((n + '').split('').reverse().map(i => Number(i)));
 
+
+
+/* Fake binary */
+
+//first attempt
+function fakeBin(x){
+	var array = String(x).split('');
+	return array.map(i => i < 5 ? '0' : '1').join('');
+}
+
+//refactored
+const fakeBin = (x) => String(x).split('').map(i => i < 5 ? '0' : 1).join('');
+
