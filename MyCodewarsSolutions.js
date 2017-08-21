@@ -57,4 +57,16 @@ var gimme = function (inputArray) {
 	return result;
 }
 
+
+
 https://www.codewars.com/kata/545a4c5a61aa4c6916000755/train/javascript
+
+
+/* Find shortest word */
+
+
+findShort = (s) => s.split(' ').sort((a,b) => a.length - b.length)[0].length;
+
+
+https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9
+
