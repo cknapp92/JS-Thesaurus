@@ -70,3 +70,32 @@ findShort = (s) => s.split(' ').sort((a,b) => a.length - b.length)[0].length;
 
 https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9
 
+
+
+
+/* Keep Hydrated! */
+
+function litres(time) {
+	var liters = Math.floor(time*0.5);
+	return liters;
+}
+
+https://www.codewars.com/kata/582cb0224e56e068d800003c/train/javascript
+
+
+
+
+/* Convert number to reversed array of digits */
+
+// first attempt
+function digitize(n) {
+	var num = (n + '').split('');
+	var result = Array.from(num)
+	.reverse()
+	.map(i => Number(i));
+	return result;
+}
+
+//refactored
+const digitize = n => ((n + '').split('').reverse().map(i => Number(i)));
+
