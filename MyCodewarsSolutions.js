@@ -44,3 +44,17 @@ Test.assertSimilar(basicOp('+', 4, 7), 11); // Test Passed: Value == '11'
 Test.assertSimilar(basicOp('-', 15, 18), -3); // Test Passed: Value == '-3'
 Test.assertSimilar(basicOp('*', 5, 5), 25); // Test Passed: Value == '25'
 Test.assertSimilar(basicOp('/', 49, 7), 7); // Test Passed: Value == '7'
+
+
+
+/* Find the middle element */
+
+var gimme = function (inputArray) {
+	var min = inputArray.reduce((a, b) => a < b ? a : b);
+	var max = inputArray.reduce((a, b) => a > b ? a : b);
+	var mid = Number(inputArray.filter(i => i > min && i < max));
+	var result = inputArray.indexOf(mid);
+	return result;
+}
+
+https://www.codewars.com/kata/545a4c5a61aa4c6916000755/train/javascript
