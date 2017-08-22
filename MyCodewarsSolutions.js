@@ -112,3 +112,36 @@ function fakeBin(x){
 //refactored
 const fakeBin = (x) => String(x).split('').map(i => i < 5 ? '0' : 1).join('');
 
+https://www.codewars.com/kata/57eae65a4321032ce000002d/solutions/javascript
+
+
+/* Make a function that does arithmetic */
+
+function arithmetic(a, b, operator){
+	if (operator === 'add') {
+	return a + b;
+} else if (operator === 'subtract') {
+	return a - b;
+} else if (operator === 'multiply') {
+	return a * b;
+} else if (operator = 'divide') {
+	return a / b;
+	}    
+}
+
+
+
+/* Get the middle character */
+
+//first attempt
+
+function getMiddle(s) {
+	var midLetter = s[Math.floor((s.length-1)/2)];
+ if (s.length % 2 !== 0) {
+	return midLetter;
+ } else {
+	return midLetter + (s[Math.floor((s.length-1)/2) + 1]);
+ }
+}
+
+
