@@ -165,3 +165,14 @@ function cubeOdd(arr) {
 }
 
 
+
+
+/* Hit count */
+
+
+//first attempt
+
+function counterEffect(hitCount) {
+	return hitCount.split('').map(i => [...Array(1 + Number((i))).keys()]);
+} // finally solved by adding 1 directly outside of the parens that i was in. Kept trying to add it directly to i
+
