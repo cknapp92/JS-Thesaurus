@@ -145,3 +145,23 @@ function getMiddle(s) {
 }
 
 
+/* Sum of Odd Cubed Numbers */
+
+
+// first attempt
+
+function cubeOdd(arr) {
+		for (let h = 0; h < arr.length; h++) {
+			console.log(arr[h]);
+			if (typeof arr[h] === 'string') {
+	     return undefined;
+		}
+}
+		var cubedArray = [];
+		for (let j = 0; j < arr.length; j++) {
+			cubedArray[j] = Math.pow(arr[j], 3);
+		}
+		return cubedArray.filter(i => i % 2).reduce((a,b) => a+b);
+}
+
+
