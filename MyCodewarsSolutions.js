@@ -224,6 +224,18 @@ function greet(name) {
 	return `hello ${name}!`
 }
 
-greet()
+greet('conrad'); // 'hello conrad!'
+greet(null); // null
+greet(''); // null
 
+
+/* Recursion #1 - factorial */
+
+const factorial = n => {
+	if (n === 0) {
+		return 1
+	} else {
+		return n * factorial(n - 1);
+	}
+}
 
