@@ -239,3 +239,18 @@ const factorial = n => {
 	}
 }
 
+
+
+/* square every digit */
+
+
+//first attempt
+const squareDigits = num => num.toString().split('').map(i => Math.pow(i,2)).join('')*1;
+
+squareDigits(9119); // 811181
+
+//2nd
+
+var squareD = num => num.toString().split('').map(i => i*i).join('')*1;
+
+
