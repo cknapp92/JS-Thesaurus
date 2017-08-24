@@ -176,3 +176,26 @@ function counterEffect(hitCount) {
 	return hitCount.split('').map(i => [...Array(1 + Number((i))).keys()]);
 } // finally solved by adding 1 directly outside of the parens that i was in. Kept trying to add it directly to i
 
+
+
+
+/* Compare Strings by Sum of Chars */
+
+//first attempt 
+function compare(s1, s2) {
+	var A = s1.split('').reduce((v,i) => v.charCodeAt(0) + i.charCodeAt(0));
+	var B = s2.split('').reduce((v,i) => v.charCodeAt(0) + i.charCodeAt(0));
+	return A === B ? true : false
+}
+
+
+
+/* Detect pangram */
+
+
+function isPangram(string){
+	var alph = "abcdefghijklmnopqrstuvwxyz".split('');
+	return alph.every((i) => string.includes(i) ? true : false);
+} /* don't need to pass in string in second function as (string, i) 
+  * or create separate variable (i.e. str) 
+  */
