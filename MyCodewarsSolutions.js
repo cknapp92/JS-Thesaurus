@@ -199,3 +199,16 @@ function isPangram(string){
 } /* don't need to pass in string in second function as (string, i) 
   * or create separate variable (i.e. str) 
   */
+
+
+/* Discover the original price */
+
+function discoverOriginalPrice(discountedPrice, salePercentage){
+	const discount = (100 - salePercentage)/100;
+	const origPrice = (discountedPrice / discount).toFixed(2); 
+	if (origPrice == (discountedPrice / discount)) { 
+	return (discountedPrice / discount); // if origPrice is whole integer, no decimals
+	} else {
+	return Number(origPrice); // if more than three, return two decimals
+	}
+}
