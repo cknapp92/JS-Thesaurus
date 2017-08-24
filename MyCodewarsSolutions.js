@@ -212,3 +212,18 @@ function discoverOriginalPrice(discountedPrice, salePercentage){
 	return Number(origPrice); // if more than three, return two decimals
 	}
 }
+
+
+
+/* Say hello! */
+
+function greet(name) {
+	if (name === null || name === '') { 
+		return null
+	}
+	return `hello ${name}!`
+}
+
+greet()
+
+
