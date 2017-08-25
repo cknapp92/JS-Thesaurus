@@ -254,3 +254,14 @@ squareDigits(9119); // 811181
 var squareD = num => num.toString().split('').map(i => i*i).join('')*1;
 
 
+
+/* Remove the minimum */
+
+function removeSmallest(numbers) {
+	var smallestNum = Math.min(...numbers);
+	var pos = numbers.indexOf(smallestNum);
+	var removedItem = numbers.splice(pos, 1);
+	return numbers;
+}
+
+
