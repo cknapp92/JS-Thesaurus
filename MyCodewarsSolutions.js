@@ -264,4 +264,13 @@ function removeSmallest(numbers) {
 	return numbers;
 }
 
+// 2nd attempt
+
+function removeSmallest(numbers) {
+	var smallestNum = Math.min(...numbers);
+	var index = numbers.indexOf(smallestNum);
+	var removedItem = numbers.splice(index, 1);
+	return numbers;
+}
+
 
