@@ -327,5 +327,16 @@ function solution(string) {
 	return string.replace(char, ' ' + char);  
 }
 
+solution('camelCasing') // 'camel Casing'
+
+
+/* Sum of two lowest positive integers in array */
+
+function sumTwoSmallestNumbers(numbers) {  
+	var nums = numbers.sort((a,b) => a - b);
+	return nums[0] + nums[1];
+};
+
+
 
 
