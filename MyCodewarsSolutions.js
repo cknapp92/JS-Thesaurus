@@ -13,7 +13,7 @@ function invert (array) {
 		a[a.length] = -Math.abs(array[i]);
 		}
 	}
-	return a; // moved return a; from previous lint to this line, between the last and second to last end curly brace.
+	return a; // moved return a; from previous line to this line, between the last and second to last end curly brace.
 }
 
 
@@ -315,6 +315,17 @@ function foldTo(distance) {
 	return folds;
 
 foldTo(384000000); // 42
+
+
+
+/* Break camel case */
+
+
+function solution(string) {
+	var charCode = Math.min(...string.split('').map(i => i.charCodeAt()));
+	var char = String.fromCharCode(charCode);
+	return string.replace(char, ' ' + char);  
+}
 
 
 
