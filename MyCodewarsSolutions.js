@@ -347,3 +347,20 @@ function sumDigits(number) {
 sumDigits(-12); // 3
 sumDigits(12); // 3
 
+
+
+
+/* Odd or even? */
+
+function oddOrEven(array) {
+	if (array === []) {
+	  return 'even';
+	}
+	var result = array.reduce((a,b) => a+b, 0); // needed to add 0 as a default value, in case [] was passed into reduce 
+	// see: https://stackoverflow.com/questions/23359173/javascript-reduce-an-empty-array
+	if (result % 2) {
+	 return 'odd';
+	} else {
+	 return 'even';
+	}
+}
