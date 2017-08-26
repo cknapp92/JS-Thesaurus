@@ -364,3 +364,12 @@ function oddOrEven(array) {
 	 return 'even';
 	}
 }
+
+
+/* Reversed strings */
+
+function solution(str){
+	return [...String(str)].reverse().join('');
+}
+
+
