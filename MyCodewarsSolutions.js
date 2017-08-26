@@ -338,5 +338,12 @@ function sumTwoSmallestNumbers(numbers) {
 };
 
 
+/* Summing a number's digits */
 
+function sumDigits(number) {
+	return String(Math.abs(number)).split('').map(i => Number(i)).reduce((a,b) => (Math.abs(a)+ Math.abs(b)));
+}
+
+sumDigits(-12); // 3
+sumDigits(12); // 3
 
