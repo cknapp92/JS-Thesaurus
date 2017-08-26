@@ -285,3 +285,14 @@ function alphabetPosition(text) {
 
 
 alphabetPosition('conrad is cool'); // "3 15 14 18 1 4 9 19 3 15 15 12"
+
+
+/* Friend or Foe? */
+
+
+const friend = friends => friends.filter(i => i.length === 4);
+
+var names = ['john', 'terry'];
+
+friend(names); // ["john"]
+
