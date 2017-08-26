@@ -274,3 +274,14 @@ function removeSmallest(numbers) {
 }
 
 
+
+/* Replace with alphabet position */
+
+
+function alphabetPosition(text) {
+	var alphabet = ' abcdefghijklmnopqrstuvwxyz'.split('');
+	return text.toLowerCase().split('').map(i => alphabet.indexOf(i)).filter(i => i > 0 && i < 27).join(' ');
+}
+
+
+alphabetPosition('conrad is cool'); // "3 15 14 18 1 4 9 19 3 15 15 12"
