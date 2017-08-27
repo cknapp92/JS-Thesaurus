@@ -416,3 +416,14 @@ function removeChar(str){
 	var removedItem2 = s.splice(s.length - 1, 1);
 	return s.join('');
 };
+
+
+
+/* Double char */
+
+function doubleChar(str) {
+	return str.split('').map(i => i+i).join('');
+}
+
+doubleChar('something'); // "ssoommeetthhiinngg"
+
