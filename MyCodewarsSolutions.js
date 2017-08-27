@@ -449,3 +449,18 @@ function validParentheses(parens){
 
 validParentheses("()"); // true
 validParentheses("())");  // false
+
+
+/* Pick peaks */
+
+function pickPeaks(arr){
+	var ans = {
+		pos:[],
+		peaks:[]
+	}
+	for (var i = 1; i < arr.length - 1; i++) 
+		if (arr[i-1] < arr[i] && arr[i] >= arr[i+1]) {
+				ans.pos.push(i) && ans.peaks.push(arr[i]);
+	} 
+	return ans;
+}
