@@ -383,3 +383,25 @@ function duplicateCount(text){
 	 return 0;
 	}
 }
+
+
+
+
+/* Rot 13 (partially completed */ 
+
+
+function rot13(message){
+	var alphabet = ' abcdefghijklmnopqrstuvwxyz'.split('');
+	var mess = message.toLowerCase().split('').map(i => alphabet.indexOf(i) + 13);
+	var newA = [];
+	for (let i in mess) {
+	  if (mess[i] > 27) {
+	    newA.push(mess[i] - 26);
+		} else {
+	    newA.push(mess[i]);
+		}
+	} 
+	return newA.map(i => alphabet[i]).join('');
+}
+
+rot13('test') // "grfg"
