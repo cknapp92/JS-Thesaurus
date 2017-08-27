@@ -373,3 +373,13 @@ function solution(str){
 }
 
 
+/* Counting Duplicates */
+
+function duplicateCount(text){
+	try {
+	 return text.toLowerCase().split('').sort().join('').match(/(.)\1+/g).length;
+	}
+	catch(err) {
+	 return 0;
+	}
+}
