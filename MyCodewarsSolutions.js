@@ -405,3 +405,14 @@ function rot13(message){
 }
 
 rot13('test') // "grfg"
+
+
+
+/* Remove first and last character */
+
+function removeChar(str){
+	var s = str.split('');
+	var removedItem1 = s.splice(0,1);
+	var removedItem2 = s.splice(s.length - 1, 1);
+	return s.join('');
+};
