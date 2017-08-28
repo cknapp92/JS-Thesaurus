@@ -152,7 +152,7 @@ function getMiddle(s) {
 
 function cubeOdd(arr) {
 		for (let h = 0; h < arr.length; h++) {
-			console.log(arr[h]);
+			console.log(arr[h]); // this console.log is unnecessary
 			if (typeof arr[h] === 'string') {
 	     return undefined;
 		}
