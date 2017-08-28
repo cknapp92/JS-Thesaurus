@@ -406,6 +406,7 @@ function rot13(message){
 
 rot13('test') // "grfg"
 
+https://www.codewars.com/kata/530e15517bc88ac656000716/train/javascript
 
 
 /* Remove first and last character */
@@ -451,7 +452,7 @@ validParentheses("()"); // true
 validParentheses("())");  // false
 
 
-/* Pick peaks */
+/* Pick peaks - partial solution */
 
 function pickPeaks(arr){
 	var ans = {
