@@ -472,3 +472,19 @@ function pickPeaks(arr){
 	} 
 	return ans;
 }
+
+
+
+/* Tower Builder */
+
+
+//my functioning but incorrectly formatted answer
+function towerBuilder(nFloors) {
+	var baseFloor = new Array(nFloors + 1).join('*');
+	return baseFloor
+		.split('')
+		.map((v,i) => baseFloor.split('').slice(0,i).join(''))
+		.slice(1)
+		.concat(baseFloor.split(' '));
+}
+
