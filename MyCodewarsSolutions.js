@@ -384,6 +384,13 @@ function duplicateCount(text){
 	}
 }
 
+//refactored
+
+function duplicateCount(text){
+	 return text.toLowerCase().split('').sort().join('').match(/(.)\1+/g) || []).length; 
+}
+
+// removed the try/catch error handling by setting a default value if function returned null
 
 
 
