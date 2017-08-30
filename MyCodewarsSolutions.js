@@ -509,3 +509,101 @@ function vowelIndices(word){
 
 
 
+/* IQ Test - Partial Solution */
+
+function iqTest(numbers){
+	var arr = numbers.split(' ').map(i => Number(i));
+	var Bools = arr.map(i => (i % 2 === 0) ? arr.indexOf(i) > -1 : false);
+
+ function mostCommon(array){
+		return array.sort((a,b) =>
+					array.filter(v => v===a).length
+				- array.filter(v => v===b).length
+		).pop();
+ }
+ var ans = mostCommon(Bools);
+ 
+  if (ans === true) {
+	 var newArr = arr.filter(i => i % 2);
+	 return arr.map(i => newArr.indexOf(i));
+  } else {
+	 var newArr2 = arr.filter(i => i % 2 === 0);
+	 return arr.map(i => newArr2.indexOf(i));
+  }
+ 
+}
+
+Expected: 3, instead got: [-1, -1, 0, -1, -1]
+Expected: 1, instead got: [0, -1, -1]
+
+
+// 2nd attempt
+
+function iqTest(numbers){
+	var arr = numbers.split(' ').map(i => Number(i));
+	var Bools = arr.map(i => (i % 2 === 0) ? arr.indexOf(i) > -1 : false);
+
+ function mostCommon(array){
+		return array.sort((a,b) =>
+					array.filter(v => v===a).length
+				- array.filter(v => v===b).length
+		).pop();
+ }
+ var ans = mostCommon(Bools);
+ 
+  if (ans === true) {
+	 return arr.filter(i => i % 2).map(i => arr.indexOf(i + 1));
+	 
+  } else {
+	 return arr.filter(i => i % 2 === 0).map(i => arr.indexOf(i + 1));
+  }
+ 
+}
+
+
+// 3rd
+
+function iqTest(numbers){
+	var arr = numbers.split(' ').map(i => Number(i));
+	var Bools = arr.map(i => (i % 2 === 0) ? arr.indexOf(i) > -1 : false);
+
+ function mostCommon(array){
+		return array.sort((a,b) =>
+					array.filter(v => v===a).length
+				- array.filter(v => v===b).length
+		).pop();
+ }
+ var ans = mostCommon(Bools);
+ 
+  if (ans === true) {
+	 return Number(arr.filter(i => i % 2).map(i => arr.indexOf(i + 1)));
+	 
+  } else {
+	 return Number(arr.filter(i => i % 2 === 0).map(i => arr.indexOf(i + 1)));
+  }
+ 
+}
+
+// 4th - solved it!!
+
+
+function iqTest(numbers){
+	var arr = numbers.split(' ').map(i => Number(i));
+	var Bools = arr.map(i => (i % 2 === 0) ? arr.indexOf(i) > -1 : false);
+
+ function mostCommon(array){
+		return array.sort((a,b) =>
+					array.filter(v => v===a).length
+				- array.filter(v => v===b).length
+		).pop();
+ }
+ var ans = mostCommon(Bools);
+ 
+  if (ans === true) {
+	 return Number(arr.filter(i => i % 2).map(i => arr.indexOf(i))) + 1;
+	 
+  } else {
+	 return Number(arr.filter(i => i % 2 === 0).map(i => arr.indexOf(i))) + 1;
+  }
+ 
+
