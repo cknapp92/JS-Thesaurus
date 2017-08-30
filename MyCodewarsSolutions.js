@@ -624,3 +624,36 @@ function chained(functions) {
 function array_diff(a, b) {
 	return a.filter(x => b.indexOf(x) === -1);
 }
+
+
+/* Parse nice int from char problem */
+
+
+function getAge(inputString){
+ return Number(inputString.split('')[0]);
+}
+
+
+
+/* Print count and numbers - Partial solution */
+
+function countMe(data) {
+	var arr = data.split('').map(i => Number(i));
+	if (arr.some(x => typeof arr[x] !== 'number')) {
+		return '';
+	}
+
+	var uniques = arr.reduce((p, n) => {
+		if (p.indexOf(n) === -1) {
+			p.push(n);
+		}
+		return p;
+	}, []);
+
+	var count = [];
+	for (let i = 0; i < uniques.length; i++) {
+		count.push(arr.filter(x => x === uniques[i]).length + String(uniques[i]));
+	}
+	return count.join('');
+
+}
