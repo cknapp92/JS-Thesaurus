@@ -488,3 +488,24 @@ function towerBuilder(nFloors) {
 		.concat(baseFloor.split(' '));
 }
 
+
+/* Find the vowels */
+
+
+//1st attempt. ugly, but it works 
+
+function vowelIndices(word){
+	var vowels = ['a','e','i','o','u','y'];
+	var arr = word.toLowerCase().split(''); // makes argument lowercase and array
+	var newArr = arr.filter(i => vowels.includes(i)); // returns only vowels
+	var newArr2 = arr.map(i => newArr.indexOf(i) > - 1); // returns boolean values of vowels as true
+	var newArr3 = newArr2.reduce(function(a, e, i) {
+		if (e === true)
+				a.push(i + 1);
+		return a;
+}, []);
+	return newArr3;
+}
+
+
+
