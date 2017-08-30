@@ -657,3 +657,35 @@ function countMe(data) {
 	return count.join('');
 
 }
+
+
+// 2nd attempt
+
+function countMe(data) {
+	if (data.match(/[a-z]/i)) { // used RegExp to see if letter in string, .some() was not as reliable
+	 return '';  
+	}
+
+	var arr = data.split('').map(i => Number(i));
+	
+	var uniques = arr.reduce((p, n) => {
+		if (p.indexOf(n) === -1) {
+			p.push(n);
+		}
+		return p;
+	}, []);
+
+	var count = [];
+	for (let i = 0; i < uniques.length; i++) {
+		count.push(arr.filter(x => x === uniques[i]).length + String(uniques[i]));
+	}
+	return count.join('');
+
+}
+
+
+/* Reverse words */
+
+function reverseWords(str) {
+	return str.split("").reverse().join("").split(" ").reverse().join(" ")
+}
