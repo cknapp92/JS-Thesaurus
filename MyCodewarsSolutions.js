@@ -607,3 +607,20 @@ function iqTest(numbers){
   }
  
 
+
+
+/* Unary Function Chainer */
+
+function chained(functions) {
+	return function(input){
+		return functions.reduce(function(acc, fn){ return fn(acc) }, input);
+	}
+}
+
+
+
+/* Array.diff */
+
+function array_diff(a, b) {
+	return a.filter(x => b.indexOf(x) === -1);
+}
