@@ -689,3 +689,23 @@ function countMe(data) {
 function reverseWords(str) {
 	return str.split("").reverse().join("").split(" ").reverse().join(" ")
 }
+
+
+/* Prefill an array */
+
+function prefill(n, v) {
+	if (typeof n == 'string') {
+	 throw TypeError;
+	} else {
+	 return new Array(n).fill(v);
+	}
+}
+
+function prefill(n, v) {
+	if (typeof n != 'number') {
+	 throw new TypeError([n + ' is invalid']);
+	}
+	else {
+	 return new Array(n).fill(v);
+	}
+}
