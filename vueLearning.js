@@ -88,6 +88,7 @@ https://jsfiddle.net/cknapp92/co9cgwkv/
 
 
 
-// Iterate over array with v-for
+// Iterate over array with v-for and return index
 
-https://jsfiddle.net/cknapp92/j7yzubrz/
+https://jsfiddle.net/cknapp92/j7yzubrz/1/
+
