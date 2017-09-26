@@ -709,3 +709,18 @@ function prefill(n, v) {
 	 return new Array(n).fill(v);
 	}
 }
+    
+    
+/* Mutate my strings */
+
+function mutateMyStrings(stringOne, stringTwo){
+  var str1 = stringOne.split('');
+  var str2 = stringTwo.split('');
+
+  var result = str2.map((v,i) => str2.slice(0,i).join('') + str1.slice(i).join(''));
+  var result2 = result.filter(function(el,index,array){return array.indexOf(el)===index;});
+
+  for(let i = 0; i < result2.length; i++) {
+  console.log(result2[i]);
+  }
+}
