@@ -88,4 +88,9 @@ conrad.sayName(); // 'Conrad'
 
 
 
+
+What is the DOM? html is plain text that gives the browser about the page. The DOM is what the browser understands this document to be. The browser will look at the html and will see the different elements within it. The browser will use info in your html to build an understanding of what your document looks like. The browser's interpretation of your html is the DOM. You can actually look at the dom and see how the browser is interpreting it with 'inspect'
+
+The DOM is the browser's understanding of what this html is. The way your browser represents your html is the way it understands it.
+
 */
