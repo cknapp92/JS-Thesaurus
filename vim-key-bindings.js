@@ -68,6 +68,7 @@
 // ~ - changes case of the letter under the cursor
 // g~w - replaces case of entire word
 // g shift U w - makes entire word uppercase
+// guw - make word lowercase
 
 // : s / 'word'/ 'newword' - change first occurrence of word on line with newword
 // : s / 'word' / 'newword' / g - replace all occurrences of word on line with newword
