@@ -1,6 +1,6 @@
 /*
 
-Arrays - firstDuplicate (attempt 1)
+Arrays - firstDuplicate (attempt 1 - timed out)
 
 function firstDuplicate(a) {
 
@@ -13,7 +13,7 @@ for (let i = 0; i < a.length; i++) {
 }
 
 
-(attempt 2)
+(attempt 2 - passed)
 
 function firstDuplicate(a) {
 
@@ -34,6 +34,18 @@ Strings - Amend the Sentence
 
 function amendTheSentence(s) {
   return s.replace(/([A-Z])/g, ' $1').trim().toLowerCase();
+}
+
+
+Arrays - find first non repeating character in string
+
+function firstNotRepeatingCharacter (s) {
+  var result = s.split('').filter(function (val, i, arr) {
+    if (arr.indexOf(v) === arr.lastIndexOf(v)) return v;
+  }).shift();
+
+  if (typeof result === 'undefined') return '_';
+  else return result;
 }
 
 */
