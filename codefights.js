@@ -48,4 +48,16 @@ function firstNotRepeatingCharacter (s) {
   else return result;
 }
 
+
+function sumOfTwo (a, b, v) {
+
+  for (var i of a) {
+    if (b.indexOf(v - i) > -1) {
+      return true;
+    } else b.push(i);
+  } 
+  return false;
+}
+
+
 */
