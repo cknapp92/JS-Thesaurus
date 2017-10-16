@@ -60,4 +60,24 @@ function sumOfTwo (a, b, v) {
 }
 
 
+function rotateImage(a) { 
+
+function getArray2dCW(a, x, y) {
+  var t = x;
+  x = y;
+  y = a.length - t - 1;
+  return a[y][x];
+}
+
+var newarr = [];
+a.forEach(() => newarr.push(new Array(a[0].length)));
+
+for (var i = 0; i < newarr.length; i++) {
+  for (var j = 0; j < newarr[0].length; j++) {
+    newarr[i][j] = getArray2dCW(a, j, i);
+  }
+}
+return newarr;
+
+}
 */
