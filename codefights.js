@@ -80,4 +80,13 @@ for (var i = 0; i < newarr.length; i++) {
 return newarr;
 
 }
+
+
+RegEx - Is Sentence Correct?
+
+function isSentenceCorrect(sentence) {
+  var re = /^[A-Z][^?!.]*[?.!]$/ ;
+  return re.test(sentence);
+}
+
 */
