@@ -175,5 +175,22 @@ function kthLargestElement(nums, k) {
   return nums.sort((a,b) => b - a)[k - 1];
 }
 
+climbingStairs
+
+function climbingStairs(n) {
+  var arr = [],
+        i;
+    
+    arr[0] = 0;
+    arr[1] = 1;
+    arr[2] = 2;
+    
+    for(i = 3; i <= n; i++) {
+        arr[i] = arr[i - 1] + arr[i - 2];
+    }
+    return arr[n];
+}
+
+
 
 */
