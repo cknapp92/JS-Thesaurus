@@ -191,6 +191,22 @@ function climbingStairs(n) {
     return arr[n];
 }
 
+Sum of Two (passed tests)
+
+function sumOfTwo(a, b, v) {
+    var hash = [];
+    for(let i = 0; i < a.length; i++) {
+       var diff = v - a[i];
+       hash[diff] = a[i];
+    }
+    
+    for (let j = 0; j < b.length; j++) {
+       if(hash[b[j]] != null) {
+          return true;
+       }
+    }
+    return false;
+}
 
 
 */
