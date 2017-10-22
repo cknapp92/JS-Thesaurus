@@ -3,7 +3,7 @@
 shift b - moves you back one word (ignores punctuation)
 b - moves you back one word (treates punctuation as word boundaries)
 shift w - moves you forward one word (ignores punctuation)
-e - go to end of given word 
+e - go to end of given word
 
 ea - insert at the end of a word
 bi - insert at the beginning of a word
@@ -19,28 +19,29 @@ bve / ve - highlight word
 H - top of the screen (way to get approximately where you want to go)
 M - middle of the screen
 L - bottom of screen
+ctrl u - page up
+ctrl d - page down
+zt - redraws cursor line to top of the window
+zb - redraws cursor line to the bottom of the window
 
 shift [] to empty line up/down
 [[ ]] - top of the file / bottom of the file
-
-ctrl u - page up
-ctrl d - page down
 
 * - find next token/word under cursor
 # - find previous token/word under cursor
 
 0 - jump to beginning of line
-shift 6 - goes to first non blank character of line
+_ - goes to first character of line (same as ^)
 $ - place cursor at the end of the line
 g_ - place cursor at the last character in line
 
 % - go to the next corresponding ( { [
 * - go the next occurrence of the word under the cursor (shift N for previous)
 
-'/' 'word' - forward slash then the word you a looking for (to search forwards)
-? 'word' - to search backwards
-n to go to next match
-shift n - goes in the reverse direction of n
+/word - search for 'word' forwards
+?word - search for 'word' backwards
+n - go to next match
+N (shift n) - goes in the reverse direction of n
 :nohls - removes the highlights until the next search
 
 . repeats the previous command; helps when you don't know how many commands you want
@@ -53,7 +54,8 @@ dh - deletes char to left of cursor
 
 d0 - delete to the beginning of the line
 d$ - delete to the end of the line
-dj - deletes the current line and the one below it
+dj - deletes the current line and the one below it (good alternative to 2dd)
+  i.e. d2j - good for deleting functions containing only one statement
 dk - deletes the current line and the one above it
 
 d shift g - deletes from current position to the end of the line
@@ -61,8 +63,8 @@ d t 'char' - deletes everything before character 'char'
 
 shift x - deletes letter to the left of your cursor
 
-'num' gg - go to line number num
-'num' G - go to line number num
+'num' gg - go to line number 'num'
+'num' G - go to line number 'num'
 gg - go to very beginning of file
 G - go to very last line of the file
 
@@ -81,7 +83,7 @@ i - appends text before the current cursor position
 o - insert a new line after the current one
 O - insert a new line before the current one
 
-80 shift i * escape - creates 80 asterisks
+80 I * escape - creates 80 asterisks
 5 o # esc - creates 5 pounds sign rows under your cursor
 
 shift r - replace mode; types over words
@@ -96,7 +98,7 @@ ct - delete up to character
 cc - delete line, insert mode
 ~ - changes case of the char under the cursor
 g~w - replaces case of entire word
-g shift U w - makes entire word uppercase
+gUw - makes entire word uppercase
 guw - make word lowercase
 
 : s / word/ newword - change first occurrence of word on line with newword
@@ -105,8 +107,6 @@ guw - make word lowercase
 : % s/ word / newword / g - global substitution
 shift j - removes line underneath current 
 3 shift j - removes three lines underneath current
-
-d t 'let' to delete everything up until the letter 'let'
 
 'num' h/j/k/l - jump left/down/up/right num number of spaces
 
@@ -124,16 +124,13 @@ shift t / f - like f and t but backwards
 
 dt 'char' - delete everything up until the character 'char' (i.e. dt")
 
-shift j - join all lines together
+J - join all lines together
 
 visual mode - v
 visual line mode - shift v
 
-stay in normal mode as long as possible
-
 dd - delete a line
 shift d - shift line but preserve line space
-
 d5w - delete five words
 
 c3j - delete three lines down and go into insert mode
@@ -146,29 +143,12 @@ ci() - cut text within parens
 ci" - cut text within quotes
 
 dab - delete around brackets
-daB - delete around curly brackets 
 
-d - copy with deletion
-y - copy or 'yank' the text without deleting
-p - to paste text after current position
-P - paste before
-
-dd - behaves the same as cut
-
-ctrl f - page up
-ctrl b - page down
-
-z enter - keeps cursor in same place, moves file up
-zz - keeps cursor in same place, center cursor line
-
-dd p - swap lines
-x p - swap letters/chars
-de e p - swap words
-
-y w - copy a word
-2 y w - copy two words
-y y - copies an entire line
-y y p - copy and paste an entire line
+yw - copy a word (cursor at first letter)
+yaw - copy a word (cursor at any position in word)
+2yw - copy two words
+yy - copies an entire line
+yyp - copy and paste an entire line
 
 u - undo last change
 ctrl r - redo last change
