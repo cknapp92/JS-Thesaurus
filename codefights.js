@@ -208,5 +208,11 @@ function sumOfTwo(a, b, v) {
     return false;
 }
 
+Swap Adjacent Words (Regex)
+
+function swapAdjacentWords(s) {
+  return s.replace(/(\w+)\s(\w+)/g, "$2 $1");
+}
+
 
 */

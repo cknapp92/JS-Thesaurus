@@ -1,3 +1,14 @@
+/* Swap first and last elements of an array */
+
+function swapFirstLast (arr) {
+  [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr];
+  return arr;
+}
+
+// swapFirstLast([1,2,3, 4,5]);
+// [5, 2, 3, 4, 1]
+
+
 /* Find the mode of a given array */
 
 function findMode (arr) {
@@ -93,3 +104,78 @@ function removeDuplicates (arr) {
   return arr.filter((el, i, arr) => arr.indexOf(el) === i);
 }
 
+
+/* Return summed digits of a number */
+
+function sumDigits (num) {
+  let value = 0;
+  let str = String(num);
+
+  for (let i = 0; i < str.length; i++) {
+    value += +str[i];
+  }
+  return value;
+}
+
+// sumDigits(1234052);
+// 17
+
+
+/* Rotate an array a variable number of steps */
+
+function rotateArray (arr, steps) {
+  if (arr.length < 2) {
+    return arr.slice(0);
+  }
+
+  let n = steps % arr.length;
+
+  if (n === 0) {
+    return arr.slice(0);
+  }
+
+  if (n < 0) {
+    return arr.slice(n).concat(arr.slice(0, arr.length + n));
+  } else {
+    return arr.slice(n).concat(arr.slice(0, n));
+  }
+}
+
+// rotateArray([3,2,4], 2);
+// [4, 3, 2]
+
+// rotatearray([3,2,4],4);
+// [2, 4, 3]
+
+
+/* Check if a number is a prime */
+
+function isPrime (num) {
+  if (num === 1) return false;
+  else if (num === 2) return true;
+  else {
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+}
+
+// isPrime(23);
+// true
+// isPrime(22);
+// false
+
+
+/* Reverse string recursively */
+
+function reverseString (str) {
+  if (str === '') {
+    return '';
+  } else {
+    return reverseString(str.substr(1)) + str.charAt(0);
+  }
+}
+
+// reverseString('ayyy lol');
+// "lol yyya"
