@@ -214,5 +214,11 @@ function swapAdjacentWords(s) {
   return s.replace(/(\w+)\s(\w+)/g, "$2 $1");
 }
 
+Shape Area
+
+function shapeArea(n) {
+  return 2 * (Math.pow(n, 2)) - (2 * n) + 1;
+}
+
 
 */
