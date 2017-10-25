@@ -1,3 +1,14 @@
+/* Swap first and last elements of an array */
+
+function swapFirstLast (arr) {
+  [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr];
+  return arr;
+}
+
+// swapFirstLast([1,2,3, 4,5]);
+// [5, 2, 3, 4, 1]
+
+
 /* Find the mode of a given array */
 
 function findMode (arr) {
@@ -93,3 +104,166 @@ function removeDuplicates (arr) {
   return arr.filter((el, i, arr) => arr.indexOf(el) === i);
 }
 
+
+/* Return summed digits of a number */
+
+function sumDigits (num) {
+  let value = 0;
+  let str = String(num);
+
+  for (let i = 0; i < str.length; i++) {
+    value += +str[i];
+  }
+  return value;
+}
+
+// sumDigits(1234052);
+// 17
+
+
+/* Rotate an array a variable number of steps */
+
+function rotateArray (arr, steps) {
+  if (arr.length < 2) {
+    return arr.slice(0);
+  }
+
+  let n = steps % arr.length;
+
+  if (n === 0) {
+    return arr.slice(0);
+  }
+
+  if (n < 0) {
+    return arr.slice(n).concat(arr.slice(0, arr.length + n));
+  } else {
+    return arr.slice(n).concat(arr.slice(0, n));
+  }
+}
+
+// rotateArray([3,2,4], 2);
+// [4, 3, 2]
+
+// rotatearray([3,2,4],4);
+// [2, 4, 3]
+
+
+/* Check if a number is a prime */
+
+function isPrime (num) {
+  if (num === 1) return false;
+  else if (num === 2) return true;
+  else {
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+}
+
+// isPrime(23);
+// true
+// isPrime(22);
+// false
+
+
+/* Reverse string recursively */
+
+function reverseString (str) {
+  if (str === '') {
+    return '';
+  } else {
+    return reverseString(str.substr(1)) + str.charAt(0);
+  }
+}
+
+// reverseString('ayyy lol');
+// "lol yyya"
+
+
+/* Reverse a number */
+
+function reverseNumber (num) {
+  let str = String(num);
+  let result = Number(str[0] !== '-' ? str.split('').reverse().join('') :
+    str[0] + str.slice(1).split('').reverse().join(''));
+ 
+  return result;
+};
+
+// reverseNum(25);
+// 52
+// reverseNum(-15);
+// -51
+// reverseNum(200);
+// 2
+
+
+/* Return the longest word (singular) in a string/array */
+
+function getLongestWord (arr) {
+  return arr.sort((a,b) => b.length - a.length)[0];
+}
+
+// getLongestWord(['a','short','algorithm']);
+// "algorithm"
+
+
+/* Return the longest words in a string/array */
+
+function getLongestWords (arr) {
+  let longestWords = [arr[0]];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length === longestWords[0].length) {
+      longestWords.push(arr[i]);
+    }
+    else if (arr[i].length > longestWords[0].length) {
+      longestWords = [arr[i]];
+    }
+  }
+  return longestWords;
+}
+
+// getLongestWords(['this','is','sentence', 'sentence']);
+// ["sentence", "sentence"]
+
+function getLongestWords (arr) {
+  let longestWords = arr[0].length; 
+  arr.map(el => longestWords = Math.max(longestWords, el.length)); // map over input array, assign max el length to longestWords
+  arr.filter(el => el.length === longestWords); // filter the input array by all words that have the value stored in longestWords
+  return arr;
+}
+
+// getLongestWords (['pigs','in','space','space','space']);
+// ["space", "space", "space"]
+
+
+/* Return true/false if array contains duplcates */
+
+function containsDuplicates (arr) {
+  let hash = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    if (hash[arr[i]]) return true; // could set it to != undefined, but it only has to be truthy to return true
+    else hash[arr[i]] = i; // this could arguably be set to any truthy value
+  }
+  return false; // if it goes through the loop and did not find a duplicate
+}
+
+
+/* Find the first character that doesn't repeat in a string */
+
+function firstNonRepeatingChar (str) {
+  let arr = str.split('');
+  let result = arr.filter(el => {
+    if (arr.indexOf(el) === arr.lastIndexOf(el)) return el;
+  }).shift();
+
+  if (result == undefined) return -1;
+  else return result;
+};
+
+// firstNonRepeatingChar('dad');
+// "a"
+// firstNonRepeatingChar('ababa');
+// -1
