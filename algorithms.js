@@ -27,6 +27,31 @@ function findMode (arr) {
 /* Find the mode and frequency of mode in sorted array */
 
 function findModeAndFreq (arr) {
+  var mode = {};
+  var max = 0,
+    count = 0;
+
+  arr.forEach(function(e) {
+    if (mode[e]) {
+      mode[e]++;
+    } else {
+      mode[e] = 1;
+    }
+
+    if (mode[e] > count) {
+      max = e;
+      count = mode[e];
+    }
+  });
+
+  return {max, count};
+}
+
+// arrayMode([3,3,8,9]);
+// {max: 3, count: 2}
+
+
+function findModeAndFreq (arr) {
   let hash = {
     freq: 0,
     mode: 0
@@ -267,3 +292,65 @@ function firstNonRepeatingChar (str) {
 // "a"
 // firstNonRepeatingChar('ababa');
 // -1
+
+
+/* Find the longest common prefix of strings in an array */
+
+function longestCommonPrefix (arr) {
+	var len = arr.length;
+	var prefix = '';
+	
+	if (len == 0) return prefix;
+	for (let i = 0; i < arr[0].length; i++) {
+		for (let j = 1; j < len; j++) {
+			if (arr[j][i] != arr[0][i]) {
+				return prefix;
+			}
+		}
+		prefix += arr[0][i];
+	} 
+	return prefix;
+};
+
+// longestCommonPrefix(['dang','danger', 'dan']);
+// "dan"
+
+/* You are climbing a stair case. It takes n steps to reach the top. You climb either 1/2 steps each time. In how many distinct ways can you climb to the top? */
+
+function climbStairs (num) {
+  let arr = [];
+
+  arr[0] = 0;
+  arr[1] = 1;
+  arr[2] = 2;
+
+  for (let i = 3; i <= num; i++) {
+    arr[i] = arr[i - 1] + arr[i - 2];
+  }
+  return arr[num];
+}
+
+// climbStairs(10);
+// 89
+
+/* Find the max sum of a subarray within an input array */
+
+function maxSubArray (arr) {
+  let sum = 0;
+  let maxSum = 0;
+      
+  for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+      
+      maxSum = Math.max(sum, maxSum);
+      
+      if (sum < 0) sum = 0;
+  }
+  
+  return maxSum;
+};
+
+// maxSubArray([-2,1,-3,4,-1,2,1,-5,4]);
+// 6
+// maxSubArray([-2,1,-3,4,-1,3,1,-5,4]);
+// 7
