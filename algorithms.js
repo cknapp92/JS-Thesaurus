@@ -8,19 +8,27 @@ function swapFirstLast (arr) {
 // swapFirstLast([1,2,3,4,5]);
 // [5, 2, 3, 4, 1]
 
+/* Get key with the max/min value */
 
-/* Find the mode of a given array */
+let obj = {angular: 4, vue: 2, react: 3, vanilla: 1};
+
+Object.keys(obj).reduce((a,b) => obj[a] > obj[b] ? a : b);
+// "angular"
+Object.keys(obj).reduce((a,b) => obj[a] > obj[b] ? b : a);
+// "vanilla"
+
+
+/* Find the mode of an array */
 
 function findMode (arr) {
   let freq = arr.reduce((acc, cur) => {
-    if (cur in acc) acc[cur]++;
+    if (acc[cur]) acc[cur]++;
     else acc[cur] = 1;
 
     return acc;
   }, {}); 
 
-  return Object.values(freq).reduce((acc, cur) => acc > cur ? acc : cur);
-  // can also be writted as: return Object.keys(freq).reduce((acc, cur) => acc[sorted] > cur[sorted] ? acc : cur);
+  return Object.keys(freq).reduce((a,b) => freq[a] > freq[b] ? a : b);
 }
 
 
@@ -28,19 +36,16 @@ function findMode (arr) {
 
 function findModeAndFreq (arr) {
   let mode = {};
-  let max = 0,
+  let max = 0, 
     count = 0;
 
-  arr.forEach(function(e) {
-    if (mode[e]) {
-      mode[e]++;
-    } else {
-      mode[e] = 1;
-    }
+  arr.forEach((el) => {
+    if (mode[el]) mode[el]++;
+    else mode[el] = 1; 
 
-    if (mode[e] > count) {
-      max = e;
-      count = mode[e];
+    if (mode[el] > count) {
+      max = el;  
+      count = mode[el];
     }
   });
 
@@ -54,7 +59,7 @@ function findModeAndFreq (arr) {
 /* Find the index of array element closest to target value */
 
 function indexOfClosest (arr, target) {
-  let smallestDistance = Infinity; // can also use Number.MAX_SAFE_INTEGER 
+  let smallestDistance = Number.MAX_SAFE_INTEGER;
   let resultIndex = 0; // index we want to return
 
   arr.forEach((el, i) => {
@@ -288,6 +293,7 @@ function longestCommonPrefix (arr) {
 // longestCommonPrefix(['dang','danger', 'dan']);
 // "dan"
 
+
 /* You are climbing a stair case. It takes n steps to reach the top. You climb either 1/2 steps each time. In how many distinct ways can you climb to the top? */
 
 function climbStairs (num) {
@@ -339,3 +345,105 @@ function findLocalMaxima (arr) {
 
 // findLocalMaxima([2,3,1,5,4]);
 // [3, 5]
+
+
+/* Count Number of Lowercase Letters in String */
+
+function lowercaseCount (str) { 
+  return (str.match(/[a-z]/g) || []).length
+}
+
+/* Return length of longest zigzag subsequence in array */
+
+function zigzag (a) {
+  let inc = [1];
+  let dec = [1];
+
+  let result = 0;
+
+  for (let i = 1; i < a.length; i++) {
+    let maxInc = 0;
+    let maxDec = 0;
+    for (let j = 0; j < i; j++) {
+      if (a[j] > a[i]) {
+        if (dec[j] > maxDec) maxDec = dec[j];
+      } else if (a[j] < a[i]) {
+          if (inc[j] > maxDec) maxInc = inc[j];
+      }
+    }
+    inc[i] = maxDec + 1;
+    dec[i] = maxInc + 1;
+
+    if (inc[i] > result) result = inc[i];
+    if (dec[i] > result) result = dec[i];
+  }
+
+  return result;
+}
+
+// zigzag([2,3,1,5,4]);
+// 5
+// zigzag([2,3,3,5,4]);
+// 3
+
+/* Function that removes all vowels in a string */
+
+function disemvowler (str) {
+  return str.replace(/[aeiou]/g, '');
+}
+
+// disemvowler("codewars");
+// "cdwrs"
+
+/* Return the number of a words in a string */
+
+function numOfWords (str) {
+  return str.match(/\S+/g).length;
+}
+// numOfWords ('this is a very long sentence');
+// 6
+
+/* List the indices of all the vowels in a word */
+
+function listVowelIdx (str) {
+  let vowels = 'aeiou';
+
+  return str.split('').reduce((acc, val, i) => {
+    if (vowels.includes(val) === true) acc.push(i);
+    return acc;
+  }, []);
+}
+
+// listVowelIdx('nelson');
+// [1, 4]
+
+/* Return the product of adjacent elements in array */
+
+function productElements (arr) {
+  return arr.slice(1).map((el, i) => el * arr[i]);
+}
+// productElements([3,2,6]);
+// [6, 12]
+
+function countSubStrs (str, substr) {
+  return str.split(substr).length - 1;
+}
+
+// countSubStrs ('this is a long is string', 'is');
+// 3
+
+/* Find the the nth index of a character in a string */
+
+function nthIndexOf (str, char, n) {
+  let arr = [];
+
+  for (let i = 0; i < str.length; i++) {
+    if (str.slice(i, i + char.length) === char) {
+      arr.push(i);
+    }
+  }
+  return arr[n - 1];
+}
+
+// nthIndexOf('watermelon','e', 2);
+// 6
