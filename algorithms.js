@@ -1,34 +1,34 @@
 /* Swap first and last elements of an array */
 
 function swapFirstLast (arr) {
-  [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr];
+  [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
   return arr;
 }
 
-// swapFirstLast([1,2,3, 4,5]);
+// swapFirstLast([1,2,3,4,5]);
 // [5, 2, 3, 4, 1]
 
 
 /* Find the mode of a given array */
 
 function findMode (arr) {
-  let frequencies = arr.reduce((acc, cur) => {
+  let freq = arr.reduce((acc, cur) => {
     if (cur in acc) acc[cur]++;
     else acc[cur] = 1;
 
     return acc;
   }, {}); 
 
-  return Object.values(frequencies).reduce((acc, cur) => acc > cur ? acc : cur);
-  // can also be writted as: return Object.keys(sorted).reduce((acc, cur) => acc[sorted] > cur[sorted] ? acc : cur);
+  return Object.values(freq).reduce((acc, cur) => acc > cur ? acc : cur);
+  // can also be writted as: return Object.keys(freq).reduce((acc, cur) => acc[sorted] > cur[sorted] ? acc : cur);
 }
 
 
 /* Find the mode and frequency of mode in sorted array */
 
 function findModeAndFreq (arr) {
-  var mode = {};
-  var max = 0,
+  let mode = {};
+  let max = 0,
     count = 0;
 
   arr.forEach(function(e) {
@@ -51,33 +51,6 @@ function findModeAndFreq (arr) {
 // {max: 3, count: 2}
 
 
-function findModeAndFreq (arr) {
-  let hash = {
-    freq: 0,
-    mode: 0
-  };
-
-  let freq = 0;
-  let mode = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== mode) {
-      freq = 0;
-      mode = arr[i];
-    }
-      freq++;
-    if (freq > hash.freq) {
-      hash.freq = freq;
-      hash.mode = mode;
-    }
-  }
-  return hash;
-}
-
-// findModeAndFreq([1,2,3,3]);
-// {freq: 2, mode: 3}
-
-
 /* Find the index of array element closest to target value */
 
 function indexOfClosest (arr, target) {
@@ -88,7 +61,7 @@ function indexOfClosest (arr, target) {
     let distance = Math.abs(target - el); // calculate the distance between the target and the number
 
     if (distance < smallestDistance) { // if the distance is less than the current smallest distance
-      resultIndex = i; // we set the index of that number to the result index (because its currently closest)
+      resultIndex = i; // we set the index of that number to the result index (because it is currently closest)
       smallestDistance = distance; // and we set the current distance to the smallest distance
     }
   });
@@ -126,7 +99,7 @@ function removeDuplicates (arr) {
 function removeDuplicates (arr) {
   'use strict';
   if (!Array.isArray(arr)) throw new TypeError (`Array expected but ${typeof arr} found`);
-  return arr.filter((el, i, arr) => arr.indexOf(el) === i);
+  return arr.filter((el, i) => arr.indexOf(el) === i);
 }
 
 
@@ -263,7 +236,7 @@ function getLongestWords (arr) {
 // ["space", "space", "space"]
 
 
-/* Return true/false if array contains duplcates */
+/* Return true/false if array contains duplicates */
 
 function containsDuplicates (arr) {
   let hash = {};
@@ -354,3 +327,15 @@ function maxSubArray (arr) {
 // 6
 // maxSubArray([-2,1,-3,4,-1,3,1,-5,4]);
 // 7
+
+function findLocalMaxima (arr) {
+  let maxima = [];
+
+  for (let i = 1; i < arr.length - 1; i++) {
+    if (arr[i - 1] < arr[i] && arr[i] > arr[i + 1]) maxima.push(arr[i]);
+  }
+  return maxima;
+}
+
+// findLocalMaxima([2,3,1,5,4]);
+// [3, 5]
