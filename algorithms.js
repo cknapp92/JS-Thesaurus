@@ -447,3 +447,13 @@ function nthIndexOf (str, char, n) {
 
 // nthIndexOf('watermelon','e', 2);
 // 6
+
+/* Count words in a string */
+
+function wordCount (str) {
+  return str.match(/\w+/g).length;
+}
+
+function wordCount (str) {
+  return str.split(/\s+/).length;
+}
